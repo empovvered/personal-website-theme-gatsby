@@ -22,4 +22,4 @@ export const theme = {
       primary: "Livvic",
     },
   },
-}
+};
