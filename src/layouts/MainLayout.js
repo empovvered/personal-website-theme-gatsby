@@ -8,14 +8,21 @@ import Header from "components/Header/Header";
 
 const Primary = styled.div`
   position: relative;
+  padding-top: 170px;
+  @media (max-width: 992px) {
+    padding-top: 100px;
+  }
+  @media (max-width: 992px) {
+    padding-top: 50px;
+  }
 `;
 
 const MainLayout = ({ children }) => (
   <>
-    <Seo/>
+    <Seo />
     <ThemeProvider theme={theme}>
-      <GlobalStyle/>
-      <Header/>
+      <GlobalStyle />
+      <Header />
       <Primary id="primary" className="content-area">
         <main id="main" className="site-main" role="main">
           {children}
