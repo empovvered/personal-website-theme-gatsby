@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import React from "react";
+import { device } from "assets/styles/mediaQueries";
 
 const HamburgerButton = styled.button`
     padding: 10px;
@@ -10,13 +11,13 @@ const HamburgerButton = styled.button`
     margin: 0;
     z-index: 10;
     display: none;
-    .hamburger-box {
+    .hamburger__box {
       width: 35px;
       height: 24px;
-      display: inline-block;
+      display: block;
       position: relative;
-      
-      .hamburger-inner {
+    }
+    .hamburger__inner {
         width: 100%;
         height: 3px;
         background-color: black;
@@ -46,27 +47,27 @@ const HamburgerButton = styled.button`
           background-color: black;
         }
       }
-    }
+    
         ${props => props.isMenuOpen && css`
-        .hamburger-inner:before {
+        .hamburger__inner:before {
             transform: translateY(10px) rotate(45deg);
         }
-        .hamburger-inner:after {
+        .hamburger__inner:after {
           transform: translateY(-10px) rotate(-45deg);
         }
-        .hamburger-inner {
-          background-color: transparent !important; 
+        .hamburger__inner {
+          background-color: transparent; 
         }
         `};
-    @media (max-width: 768px) {
-        display: inline-block;
+    @media ${device.sm} {
+        display: block;
     }
 `;
 
 const Hamburger = ({ isMenuOpen, toggleMobileMenu }) => (
   <HamburgerButton isMenuOpen={isMenuOpen} type="button" onClick={toggleMobileMenu}>
-            <span className="hamburger-box">
-              <span className="hamburger-inner"/>
+            <span className="hamburger__box">
+              <span className="hamburger__inner"/>
             </span>
   </HamburgerButton>
 );
