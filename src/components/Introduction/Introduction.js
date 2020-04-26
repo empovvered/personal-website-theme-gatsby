@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Button from "components/Button/Button";
-
-import intrPlchdr from "assets/images/intro-plhdr.png";
+import introPortrait from "assets/images/intro-portrait.png";
 
 const Wrapper = styled.div`
   .wrapper-inner {
@@ -56,27 +55,25 @@ const Wrapper = styled.div`
 `;
 
 const Introduction = () => (
-  <>
-    <Wrapper>
-      <div className="container">
-        <div className="row wrapper-inner">
-          <div className="col-lg-6 intro-text-wrapper">
-            <span>Hello</span>
-            <h1>I&apos;m Dawid</h1>
-            <p>Frontend developer</p>
-            <Button type="button">Hire me</Button>
-          </div>
-          <div className="col-lg-6 intro-img-wrapper">
-            <img
-              className="intro-img"
-              src={intrPlchdr}
-              alt="intro-placeholder"
-            />
-          </div>
+  <Wrapper>
+    <div className="container">
+      <div className="row wrapper-inner">
+        <div className="col-lg-6 intro-text-wrapper">
+          <span>Hello</span>
+          <h1>I&apos;m Dawid</h1>
+          <p>Frontend developer</p>
+          <Button type="button">Hire me</Button>
+        </div>
+        <div className="col-lg-6 intro-img-wrapper">
+          <img
+            className="intro-img"
+            src={introPortrait}
+            alt="intro-placeholder"
+          />
         </div>
       </div>
-    </Wrapper>
-  </>
+    </div>
+  </Wrapper>
 );
 
 export default Introduction;

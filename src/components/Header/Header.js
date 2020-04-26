@@ -5,11 +5,19 @@ import { Link } from "gatsby";
 import Hamburger from "components/Header/Hamburger/Hamburger";
 import MainNavigation from "components/Header/MainNavigation/MainNavigation";
 import Socials from "components/Header/Socials/Socials";
-import intrBg from "assets/images/intr-bg.png";
 
 const Wrapper = styled.div`
-  padding-top: 10px;
-  position: relative;
+  width: 100%;
+  position: ${({ isHeaderFixed }) => (isHeaderFixed ? "fixed" : "static")};
+  background-color: ${({ isHeaderFixed }) =>
+    isHeaderFixed ? "#f5f5f5" : "transparent"};
+  box-shadow: ${({ isHeaderFixed }) =>
+    isHeaderFixed
+      ? "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"
+      : "none"};
+  padding: 10px 0;
+  top: 0;
+  z-index: 10;
   .wrapper-inner {
     align-items: center;
     justify-content: space-between;
@@ -35,29 +43,6 @@ const Wrapper = styled.div`
         z-index: 10;
       }
     }
-  }
-  .top-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    height: auto;
-    @media (max-width: 576px) {
-      width: 300px;
-    }
-  }
-  @media (max-width: 768px) {
-    position: ${({ isHeaderFixed }) => (isHeaderFixed ? "fixed" : "static")};
-    background-color: ${({ isHeaderFixed }) =>
-      isHeaderFixed ? "#f5f5f5" : "transparent"};
-    box-shadow: ${({ isHeaderFixed }) =>
-      isHeaderFixed
-        ? "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"
-        : "none"};
-    padding: 10px 0;
-    top: 0;
-    z-index: 10;
-    width: 100%;
   }
 `;
 
@@ -96,7 +81,6 @@ const Header = () => {
           />
         </div>
       </div>
-      <img className="top-bg" src={intrBg} alt="intro-bg" />
     </Wrapper>
   );
 };

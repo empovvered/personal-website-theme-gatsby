@@ -3,8 +3,9 @@ import GlobalStyle from "assets/styles/GlobalStyle";
 import PropTypes from "prop-types";
 import { theme } from "assets/styles/theme";
 import styled, { ThemeProvider } from "styled-components";
-import Seo from "components/Seo/Seo";
+import SEO from "components/Seo/Seo";
 import Header from "components/Header/Header";
+import topShape from "assets/images/top-shape.png";
 
 const Primary = styled.div`
   position: relative;
@@ -17,9 +18,20 @@ const Primary = styled.div`
   }
 `;
 
+const TopShape = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  height: auto;
+  @media (max-width: 576px) {
+    width: 300px;
+  }
+`;
+
 const MainLayout = ({ children }) => (
   <>
-    <Seo />
+    <SEO />
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
@@ -28,6 +40,7 @@ const MainLayout = ({ children }) => (
           {children}
         </main>
       </Primary>
+      <TopShape src={topShape} alt="intro-bg" />
     </ThemeProvider>
   </>
 );
