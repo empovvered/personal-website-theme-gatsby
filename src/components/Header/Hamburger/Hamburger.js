@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { device } from "assets/styles/mediaQueries";
 
-const HamburgerButton = styled.button`
+const HamburgerComponent = styled.button`
     padding: 10px;
     cursor: pointer;
     background-color: transparent;
@@ -11,13 +11,13 @@ const HamburgerButton = styled.button`
     margin: 0;
     z-index: 10;
     display: none;
-    .hamburger__box {
+    .hamburger-box {
       width: 35px;
       height: 24px;
       display: block;
       position: relative;
     }
-    .hamburger__inner {
+    .hamburger-inner {
         width: 100%;
         height: 3px;
         background-color: black;
@@ -48,30 +48,35 @@ const HamburgerButton = styled.button`
         }
       }
     
-        ${props => props.isMenuOpen && css`
-        .hamburger__inner:before {
-            transform: translateY(10px) rotate(45deg);
-        }
-        .hamburger__inner:after {
-          transform: translateY(-10px) rotate(-45deg);
-        }
-        .hamburger__inner {
-          background-color: transparent; 
-        }
-        `};
+        ${(props) =>
+          props.isMenuOpen &&
+          css`
+            .hamburger-inner:before {
+              transform: translateY(10px) rotate(45deg);
+            }
+            .hamburger-inner:after {
+              transform: translateY(-10px) rotate(-45deg);
+            }
+            .hamburger-inner {
+              background-color: transparent;
+            }
+          `}
     @media ${device.sm} {
         display: block;
     }
 `;
 
 const Hamburger = ({ isMenuOpen, toggleMobileMenu }) => (
-  <HamburgerButton isMenuOpen={isMenuOpen} type="button" onClick={toggleMobileMenu}>
-            <span className="hamburger__box">
-              <span className="hamburger__inner"/>
-            </span>
-  </HamburgerButton>
+  <HamburgerComponent
+    isMenuOpen={isMenuOpen}
+    type="button"
+    onClick={toggleMobileMenu}
+  >
+    <span className="hamburger-box">
+      <span className="hamburger-inner" />
+    </span>
+  </HamburgerComponent>
 );
-
 
 Hamburger.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
@@ -79,4 +84,3 @@ Hamburger.propTypes = {
 };
 
 export default Hamburger;
-

@@ -19,12 +19,12 @@ const HeaderComponent = styled.div`
   padding: 10px 0;
   top: 0;
   z-index: 10;
-  .header__inner {
+  .header-inner {
     align-items: center;
     justify-content: space-between;
     display: flex;
   }
-  .header__logo {
+  .header-logo {
     font-size: 3.4rem;
     text-decoration: none;
     color: ${({ theme }) => theme.textWhite};
@@ -70,8 +70,8 @@ const Header = () => {
 
   return (
     <HeaderComponent isHeaderFixed={isHeaderFixed}>
-      <div className="container header__inner ">
-        <Link to="/" className="header__logo">
+      <div className="container header-inner ">
+        <Link to="/" className="header-logo">
           E
         </Link>
         <MainNavigation isMenuOpen={isMenuOpen} />

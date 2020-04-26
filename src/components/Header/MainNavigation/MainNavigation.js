@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { device } from "assets/styles/mediaQueries";
 
 import NavLink from "components/Header/NavLink/NavLink";
 
-const MainNavigationWrapper = styled.nav`
+const MainNavigationComponent = styled.nav`
   display: flex;
   align-items: center;
   ul {
@@ -23,7 +24,7 @@ const MainNavigationWrapper = styled.nav`
       }
     }
   }
-  @media (max-width: 768px) {
+  @media ${device.sm} {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
@@ -41,7 +42,7 @@ const MainNavigationWrapper = styled.nav`
 `;
 
 const MainNavigation = ({ isMenuOpen }) => (
-  <MainNavigationWrapper role="navigation" isMenuOpen={isMenuOpen}>
+  <MainNavigationComponent role="navigation" isMenuOpen={isMenuOpen}>
     <ul>
       <li>
         <NavLink to="/about">About</NavLink>
@@ -53,7 +54,7 @@ const MainNavigation = ({ isMenuOpen }) => (
         <NavLink to="/contact">Contact</NavLink>
       </li>
     </ul>
-  </MainNavigationWrapper>
+  </MainNavigationComponent>
 );
 
 MainNavigation.propTypes = {
