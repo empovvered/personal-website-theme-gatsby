@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Button from "components/Button/Button";
 import introPortrait from "assets/images/intro-portrait.png";
 
-const Wrapper = styled.div`
+const IntroductionComponent = styled.div`
   .wrapper-inner {
     align-items: center;
     .intro-text-wrapper {
@@ -55,12 +55,12 @@ const Wrapper = styled.div`
 `;
 
 const Introduction = () => (
-  <Wrapper>
+  <IntroductionComponent>
     <div className="container">
       <div className="row wrapper-inner">
         <div className="col-lg-6 intro-text-wrapper">
           <span>Hello</span>
-          <h1>I&apos;m Dawid</h1>
+          <h1>I&apos;m Kasia</h1>
           <p>Frontend developer</p>
           <Button type="button">Hire me</Button>
         </div>
@@ -73,7 +73,7 @@ const Introduction = () => (
         </div>
       </div>
     </div>
-  </Wrapper>
+  </IntroductionComponent>
 );
 
 export default Introduction;

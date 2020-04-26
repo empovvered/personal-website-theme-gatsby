@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const SocialIconWrapper = styled.a`
+const SocialIconComponent = styled.a`
   width: 40px;
   height: 40px;
   border: 1px solid rgb(219, 219, 219);
@@ -26,7 +26,7 @@ const SocialIconWrapper = styled.a`
   }
 `;
 
-const SocialIcon = ({ icon }) => <SocialIconWrapper icon={icon} />;
+const SocialIcon = ({ icon }) => <SocialIconComponent icon={icon} />;
 
 SocialIcon.propTypes = {
   icon: PropTypes.string.isRequired,

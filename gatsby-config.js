@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   siteMetadata: {
@@ -15,6 +15,14 @@ module.exports = {
       options: {
         google: {
           families: ["Livvic:200,400,500,600,700"],
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
         },
       },
     },
@@ -67,4 +75,4 @@ module.exports = {
       },
     },
   ],
-}
+};
