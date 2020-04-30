@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import Button from "components/Button/Button";
 import introPortrait from "assets/images/intro-portrait.png";
+import TopShape from "assets/images/intro-shape.inline.svg";
+import { device } from "assets/styles/mediaQueries";
+import gsap from "gsap";
+
+const TopShapeWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  @media ${device.lg} {
+    z-index: -1;
+    width: 500px;
+    svg {
+      width: 500px;
+      height: 100%;
+    }
+  }
+  @media ${device.xs} {
+    width: 250px;
+    svg {
+      width: 250px;
+    }
+  }
+`;
 
 const IntroductionComponent = styled.div`
   .wrapper-inner {
@@ -54,26 +78,53 @@ const IntroductionComponent = styled.div`
   }
 `;
 
-const Introduction = () => (
-  <IntroductionComponent>
-    <div className="container">
-      <div className="row wrapper-inner">
-        <div className="col-lg-6 intro-text-wrapper">
-          <span>Hello</span>
-          <h1>I&apos;m Kasia</h1>
-          <p>Frontend developer</p>
-          <Button type="button">Hire me</Button>
-        </div>
-        <div className="col-lg-6 intro-img-wrapper">
-          <img
-            className="intro-img"
-            src={introPortrait}
-            alt="intro-placeholder"
-          />
+const Introduction = () => {
+  const wrapper = useRef(null);
+
+  useEffect(() => {
+    const [elements] = wrapper.current.children;
+
+    const backgound = elements.getElementById("Rectangle");
+    const ornamentWhite = elements.getElementById("Ornament/Dotted/white");
+    const ornamentBlack = elements.getElementById("Ornament/Dotted/black");
+    const oval = elements.getElementById("Oval");
+    const rectangle2 = elements.getElementById("Rectangle2");
+    const rectangle1 = elements.getElementById("Fill-11");
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+
+    tl.fromTo(backgound, { x: "+=500" }, { duration: 1.5, x: "-=500" });
+    tl.fromTo(
+      [ornamentWhite, ornamentBlack, oval, rectangle2, rectangle1],
+      { scaleY: 0 },
+      { duration: 1, scaleY: 1 }
+    );
+  });
+
+  return (
+    <IntroductionComponent>
+      <TopShapeWrapper ref={wrapper}>
+        <TopShape />
+      </TopShapeWrapper>
+      <div className="container">
+        <div className="row wrapper-inner">
+          <div className="col-lg-6 intro-text-wrapper">
+            <span>Hello</span>
+            <h1>I&apos;m John</h1>
+            <p>Frontend developer</p>
+            <Button type="button">Hire me</Button>
+          </div>
+          <div className="col-lg-6 intro-img-wrapper">
+            <img
+              className="intro-img"
+              src={introPortrait}
+              alt="intro-placeholder"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </IntroductionComponent>
-);
+    </IntroductionComponent>
+  );
+};
 
 export default Introduction;

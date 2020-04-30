@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { device } from "assets/styles/mediaQueries";
 
 const SocialIconComponent = styled.a`
   width: 40px;
@@ -21,7 +22,7 @@ const SocialIconComponent = styled.a`
     transform: scale(1.05);
   }
 
-  @media (max-width: 992px) {
+  @media ${device.md} {
     background-color: ${({ theme }) => theme.primary};
   }
 `;

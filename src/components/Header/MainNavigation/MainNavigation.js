@@ -13,13 +13,13 @@ const MainNavigationComponent = styled.nav`
     margin: 0;
     display: flex;
     list-style: none;
-    @media (max-width: 768px) {
+    @media ${device.sm} {
       flex-direction: column;
       align-items: center;
     }
     li {
       padding: 0 23px;
-      @media (max-width: 768px) {
+      @media ${device.sm} {
         padding: 30px 0;
       }
     }
@@ -42,16 +42,22 @@ const MainNavigationComponent = styled.nav`
 `;
 
 const MainNavigation = ({ isMenuOpen }) => (
-  <MainNavigationComponent role="navigation" isMenuOpen={isMenuOpen}>
+  <MainNavigationComponent isMenuOpen={isMenuOpen}>
     <ul>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink activeClassName="active" to="/about">
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/portfolio">Portfolio</NavLink>
+        <NavLink activeClassName="active" to="/portfolio">
+          Portfolio
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink activeClassName="active" to="/contact">
+          Contact
+        </NavLink>
       </li>
     </ul>
   </MainNavigationComponent>

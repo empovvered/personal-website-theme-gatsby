@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: "Livvic", sans-serif;
-        line-height: 1.65;
+        line-height: 1.33;
     }
     
     @media (min-width: 1200px) {
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     }
   
     p {
-        margin-bottom: 1.15rem;
+        margin: 0 0 1.15rem;
     }
     
     h1, h2, h3, h4, h5, h6 {

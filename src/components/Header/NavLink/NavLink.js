@@ -22,6 +22,9 @@ const NavLinkComponent = styled(Link)`
   :hover::after {
     width: 50%;
   }
+  &.active {
+    color: ${({ theme }) => theme.primary};
+  }
 `;
 
 export default NavLinkComponent;

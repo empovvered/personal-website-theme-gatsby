@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { device } from "assets/styles/mediaQueries";
 
 import SocialIcon from "components/Header/SocialIcon/SocialIcon";
 
@@ -11,7 +12,7 @@ import twitterIcon from "assets/icons/twitter.svg";
 const SocialsComponent = styled.div`
   display: flex;
   z-index: 10;
-  @media (max-width: 768px) {
+  @media ${device.sm} {
     position: fixed;
     z-index: 10;
     left: 50%;
@@ -26,9 +27,9 @@ const SocialsComponent = styled.div`
 
 const Socials = ({ isMenuOpen }) => (
   <SocialsComponent isMenuOpen={isMenuOpen}>
-    <SocialIcon href="" icon={twitterIcon} />
-    <SocialIcon href="" icon={instagramIcon} />
-    <SocialIcon href="" icon={facebookIcon} />
+    <SocialIcon href="#" icon={twitterIcon} />
+    <SocialIcon href="#" icon={instagramIcon} />
+    <SocialIcon href="#" icon={facebookIcon} />
   </SocialsComponent>
 );
 

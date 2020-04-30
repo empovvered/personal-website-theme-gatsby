@@ -9,7 +9,7 @@ import Socials from "components/Header/Socials/Socials";
 
 const HeaderComponent = styled.div`
   width: 100%;
-  position: ${({ isHeaderFixed }) => (isHeaderFixed ? "fixed" : "static")};
+  position: fixed;
   background-color: ${({ isHeaderFixed }) =>
     isHeaderFixed ? "#f5f5f5" : "transparent"};
   box-shadow: ${({ isHeaderFixed }) =>
@@ -19,12 +19,12 @@ const HeaderComponent = styled.div`
   padding: 10px 0;
   top: 0;
   z-index: 10;
-  .header-inner {
+  .header__inner {
     align-items: center;
     justify-content: space-between;
     display: flex;
   }
-  .header-logo {
+  .header__logo {
     font-size: 3.4rem;
     text-decoration: none;
     color: ${({ theme }) => theme.textWhite};
@@ -70,8 +70,8 @@ const Header = () => {
 
   return (
     <HeaderComponent isHeaderFixed={isHeaderFixed}>
-      <div className="container header-inner ">
-        <Link to="/" className="header-logo">
+      <div className="container header__inner ">
+        <Link to="/" className="header__logo">
           E
         </Link>
         <MainNavigation isMenuOpen={isMenuOpen} />

@@ -11,13 +11,13 @@ const HamburgerComponent = styled.button`
     margin: 0;
     z-index: 10;
     display: none;
-    .hamburger-box {
+    .hamburger__box {
       width: 35px;
       height: 24px;
       display: block;
       position: relative;
     }
-    .hamburger-inner {
+    .hamburger__inner {
         width: 100%;
         height: 3px;
         background-color: black;
@@ -51,13 +51,13 @@ const HamburgerComponent = styled.button`
         ${(props) =>
           props.isMenuOpen &&
           css`
-            .hamburger-inner:before {
+            .hamburger__inner:before {
               transform: translateY(10px) rotate(45deg);
             }
-            .hamburger-inner:after {
+            .hamburger__inner:after {
               transform: translateY(-10px) rotate(-45deg);
             }
-            .hamburger-inner {
+            .hamburger__inner {
               background-color: transparent;
             }
           `}
@@ -72,8 +72,8 @@ const Hamburger = ({ isMenuOpen, toggleMobileMenu }) => (
     type="button"
     onClick={toggleMobileMenu}
   >
-    <span className="hamburger-box">
-      <span className="hamburger-inner" />
+    <span className="hamburger__box">
+      <span className="hamburger__inner" />
     </span>
   </HamburgerComponent>
 );

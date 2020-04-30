@@ -3,7 +3,7 @@ import GlobalStyle from "assets/styles/GlobalStyle";
 import PropTypes from "prop-types";
 import { theme } from "assets/styles/theme";
 import styled, { ThemeProvider } from "styled-components";
-import SEO from "components/Seo/Seo";
+import SEO from "components/Seo/SEO";
 import Header from "components/Header/Header";
 import { device } from "assets/styles/mediaQueries";
 
