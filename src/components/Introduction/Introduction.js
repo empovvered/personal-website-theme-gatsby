@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import Button from "components/Button/Button";
 import introPortrait from "assets/images/intro-portrait.png";
-import TopShape from "assets/images/intro-shape.inline.svg";
+import IntroShape from "assets/images/intro-shape.inline.svg";
 import { device } from "assets/styles/mediaQueries";
 import gsap from "gsap";
 
-const TopShapeWrapper = styled.div`
+const IntroShapeWrapper = styled.div`
   position: absolute;
   right: 0;
   top: 0;
@@ -29,54 +29,54 @@ const TopShapeWrapper = styled.div`
 `;
 
 const IntroductionComponent = styled.div`
-  .wrapper-inner {
+  .intro {
     align-items: center;
-    .intro-text-wrapper {
+    @media (max-width: 992px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .intro__img {
+      text-align: right;
+      &__element {
+        box-shadow: 40px 2px 80px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        width: 420px;
+        height: 420px;
+        @media ${device.md} {
+          width: 350px;
+          height: 350px;
+        }
+        @media ${device.xs} { {
+          width: 250px;
+          height: 250px;
+        }
+      }
+      @media ${device.md} {
+        text-align: right;
+        order: 1;
+      }
+      @media ${device.xs} {
+        text-align: center;
+        margin-bottom: 33px;
+      }
+    }
+  .intro__text {
       span {
         font-size: ${({ theme }) => theme.font.size.subTitle};
       }
       p {
         color: ${({ theme }) => theme.textGray};
       }
-      @media (max-width: 992px) {
+     @media ${device.md} {
         order: 2;
         text-align: left;
       }
-      @media (max-width: 576px) {
+      @media ${device.xs} {
         text-align: center;
       }
     }
-    .intro-img-wrapper {
-      text-align: right;
-      .intro-img {
-        box-shadow: 40px 2px 80px rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        width: 420px;
-        height: 420px;
-        @media (max-width: 992px) {
-          width: 350px;
-          height: 350px;
-        }
-        @media (max-width: 576px) {
-          width: 250px;
-          height: 250px;
-        }
-      }
-      @media (max-width: 992px) {
-        text-align: right;
-        order: 1;
-      }
-      @media (max-width: 576px) {
-        text-align: center;
-        margin-bottom: 33px;
-      }
-    }
-    @media (max-width: 992px) {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-`;
+}`;
 
 const Introduction = () => {
   const wrapper = useRef(null);
@@ -103,20 +103,20 @@ const Introduction = () => {
 
   return (
     <IntroductionComponent>
-      <TopShapeWrapper ref={wrapper}>
-        <TopShape />
-      </TopShapeWrapper>
+      <IntroShapeWrapper ref={wrapper}>
+        <IntroShape />
+      </IntroShapeWrapper>
       <div className="container">
-        <div className="row wrapper-inner">
-          <div className="col-lg-6 intro-text-wrapper">
+        <div className="row intro">
+          <div className="col-lg-6 intro__text">
             <span>Hello</span>
             <h1>I&apos;m John</h1>
             <p>Frontend developer</p>
             <Button type="button">Hire me</Button>
           </div>
-          <div className="col-lg-6 intro-img-wrapper">
+          <div className="col-lg-6 intro__img">
             <img
-              className="intro-img"
+              className="intro__img__element"
               src={introPortrait}
               alt="intro-placeholder"
             />
