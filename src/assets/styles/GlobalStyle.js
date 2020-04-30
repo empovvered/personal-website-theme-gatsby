@@ -41,6 +41,10 @@ const GlobalStyle = createGlobalStyle`
         border-color: rgb(38, 38, 38);
         border-image: initial;
     }
+    
+    section {
+        margin: 50px 0;
+    }
   
     p {
         margin: 0 0 1.15rem;

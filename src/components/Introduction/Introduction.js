@@ -12,12 +12,17 @@ const IntroShapeWrapper = styled.div`
   right: 0;
   top: 0;
   z-index: -1;
+  width: 540px;
+  height: auto;
+  svg {
+    width: 540px;
+    height: auto;
+  }
   @media ${device.lg} {
     z-index: -1;
-    width: 500px;
+    width: 400px;
     svg {
-      width: 500px;
-      height: 100%;
+      width: 400px;
     }
   }
   @media ${device.xs} {
@@ -28,7 +33,9 @@ const IntroShapeWrapper = styled.div`
   }
 `;
 
-const IntroductionComponent = styled.div`
+const IntroductionComponent = styled.section`
+  margin-top: 0;
+  padding-bottom: 93px;
   .intro {
     align-items: center;
     @media (max-width: 992px) {
@@ -99,7 +106,8 @@ const Introduction = () => {
     tl.fromTo(
       [ornamentWhite, ornamentBlack, oval, rectangle2, rectangle1],
       { scaleY: 0 },
-      { duration: 1, scaleY: 1 }
+      { duration: 1, scaleY: 1 },
+      "-=0.75"
     );
   });
 

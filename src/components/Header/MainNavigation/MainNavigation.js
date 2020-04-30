@@ -20,7 +20,7 @@ const MainNavigationComponent = styled.nav`
     li {
       padding: 0 23px;
       @media ${device.sm} {
-        padding: 30px 0;
+        padding: 15px 0;
       }
     }
   }
@@ -45,6 +45,11 @@ const MainNavigation = ({ isMenuOpen }) => (
   <MainNavigationComponent isMenuOpen={isMenuOpen}>
     <ul>
       <li>
+        <NavLink activeClassName="active" to="/">
+          Home
+        </NavLink>
+      </li>
+      <li>
         <NavLink activeClassName="active" to="/about">
           About
         </NavLink>
@@ -52,6 +57,11 @@ const MainNavigation = ({ isMenuOpen }) => (
       <li>
         <NavLink activeClassName="active" to="/portfolio">
           Portfolio
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active" to="/blog">
+          Blog
         </NavLink>
       </li>
       <li>

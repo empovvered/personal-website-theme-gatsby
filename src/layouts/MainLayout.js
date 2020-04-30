@@ -9,7 +9,7 @@ import { device } from "assets/styles/mediaQueries";
 
 const Primary = styled.div`
   position: relative;
-  padding-top: 170px;
+  padding-top: 236px;
   @media ${device.md} {
     padding-top: 100px;
   }
