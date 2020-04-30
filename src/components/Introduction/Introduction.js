@@ -37,46 +37,48 @@ const IntroductionComponent = styled.div`
     }
   }
   .intro__img {
-      text-align: right;
-      &__element {
-        box-shadow: 40px 2px 80px rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        width: 420px;
-        height: 420px;
-        @media ${device.md} {
-          width: 350px;
-          height: 350px;
-        }
-        @media ${device.xs} { {
+    text-align: right;
+    &__element {
+      box-shadow: 40px 2px 80px rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 420px;
+      height: 420px;
+      @media ${device.md} {
+        width: 350px;
+        height: 350px;
+      }
+      @media ${device.xs} {
+         {
           width: 250px;
           height: 250px;
         }
       }
-      @media ${device.md} {
-        text-align: right;
-        order: 1;
-      }
-      @media ${device.xs} {
-        text-align: center;
-        margin-bottom: 33px;
-      }
     }
+    @media ${device.md} {
+      text-align: right;
+      order: 1;
+    }
+    @media ${device.xs} {
+      text-align: center;
+      margin-bottom: 33px;
+    }
+  }
   .intro__text {
-      span {
-        font-size: ${({ theme }) => theme.font.size.subTitle};
-      }
-      p {
-        color: ${({ theme }) => theme.textGray};
-      }
-     @media ${device.md} {
-        order: 2;
-        text-align: left;
-      }
-      @media ${device.xs} {
-        text-align: center;
-      }
+    span {
+      font-size: ${({ theme }) => theme.font.size.subTitle};
     }
-}`;
+    p {
+      color: ${({ theme }) => theme.textGray};
+    }
+    @media ${device.md} {
+      order: 2;
+      text-align: left;
+    }
+    @media ${device.xs} {
+      text-align: center;
+    }
+  }
+`;
 
 const Introduction = () => {
   const wrapper = useRef(null);

@@ -13,9 +13,6 @@ const Primary = styled.div`
   @media ${device.md} {
     padding-top: 100px;
   }
-  @media ${device.md} {
-    padding-top: 50px;
-  }
 `;
 
 const MainLayout = ({ children }) => (
