@@ -1,9 +1,15 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import ButtonComponent from "components/Button/Button";
-import { device } from "assets/styles/mediaQueries";
+import React, { useEffect, useRef, useState } from "react";
+import { useIntersection } from "react-use";
+import {
+  AboutShapeWrapper,
+  StyledButtonComponent,
+  AboutNavItem,
+  AboutComponent,
+} from "components/HOMEPAGE/About/AboutStyles";
 
 import aboutPortrait from "assets/images/about-portrait.png";
+import AboutShape from "assets/images/about-shape.inline.svg";
+import gsap from "gsap";
 
 const dummyData = [
   {
@@ -26,120 +32,66 @@ const dummyData = [
   },
 ];
 
-const AboutComponent = styled.section`
-  padding-top: 75px;
-  .about {
-    &__image {
-      &__element {
-        box-shadow: -40px 2px 80px rgba(0, 0, 0, 0.5);
-        width: 500px;
-        height: 500px;
-        border-radius: 23px;
-        @media ${device.lg} {
-          width: 350px;
-          height: 350px;
-        }
-        @media ${device.xs} {
-          width: 250px;
-          height: 250px;
-        }
-      }
-      @media ${device.xs} {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 50px;
-      }
-    }
-    &__info {
-      .sub-title {
-        margin-bottom: 10px;
-        display: block;
-      }
-      @media ${device.md} {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-      @media ${device.xs} {
-        align-items: center;
-      }
-    }
-    &__nav {
-      margin-bottom: 33px;
-      ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-      }
-    }
-    &__desc {
-      p {
-        color: ${({ theme }) => theme.textGray};
-      }
-      @media ${device.md} {
-        max-width: 70vw;
-      }
-      @media ${device.xs} {
-        max-width: unset;
-        text-align: center;
-      }
-    }
-  }
-  @media ${device.md} {
-    padding-top: 50px;
-  }
-  @media ${device.xs} {
-    padding-top: 35px;
-  }
-`;
-
-const AboutNavItem = styled.li`
-  margin-right: 41px;
-  cursor: pointer;
-  position: relative;
-  text-transform: capitalize;
-  :last-child {
-    margin-right: 0;
-  }
-  :after {
-    content: "";
-    background-color: ${({ theme }) => theme.primary};
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    transform: scale(0);
-  }
-  ${({ active }) =>
-    active &&
-    css`
-      :after {
-        transform: scale(1);
-        transition: transform 0.3s ease-in-out;
-      }
-    `}
-`;
-
-const StyledButtonComponent = styled(ButtonComponent)`
-  margin-top: 30px;
-  @media ${device.md} {
-    display: block;
-    margin-left: auto;
-  }
-  @media ${device.xs} {
-    margin: 30px auto 0;
-  }
-`;
-
 const Introduction = () => {
   const [currentTab, setCurrentTab] = useState(dummyData[0].id);
+  const [animated, setAnimated] = useState(false);
+  const aboutSectionWrapper = useRef(null);
+  const aboutShapeWrapper = useRef(null);
 
   const [activeTab] = dummyData.filter((item) => item.id === currentTab);
 
+  const animateAbout = () => {
+    const [elements] = aboutShapeWrapper.current.children;
+    const aboutSection = aboutSectionWrapper.current;
+
+    const rectangle = elements.getElementById("Rectangle");
+    const ornamentWhite = elements.getElementById("Ornament/Dotted/white");
+    const oval = elements.getElementById("Oval");
+    const rectangle1 = elements.getElementById("Fill-03");
+    const rectangle2 = elements.getElementById("Fill-2");
+    const rectangle3 = elements.getElementById("Rectangle-3");
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+
+    gsap.set(aboutSection, { y: 50 });
+
+    tl.fromTo(
+      rectangle,
+      { rotation: 45, transformOrigin: "50% 50%" },
+      { rotation: -45, duration: 1.5 }
+    );
+    tl.fromTo(
+      [ornamentWhite, oval, rectangle1, rectangle2, rectangle3],
+      { scaleY: 0 },
+      { duration: 1, scaleY: 1 },
+      "-=0.75"
+    );
+
+    tl.to(aboutSection, { y: 0, autoAlpha: 1, duration: 1 }, "-=1.5");
+  };
+
+  const intersection = useIntersection(aboutSectionWrapper, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1,
+  });
+
+  useEffect(() => {
+    if (
+      intersection &&
+      intersection.intersectionRatio > 0.5 &&
+      animated === false
+    ) {
+      animateAbout();
+      setAnimated(true);
+    }
+  });
+
   return (
-    <AboutComponent>
+    <AboutComponent ref={aboutSectionWrapper}>
+      <AboutShapeWrapper ref={aboutShapeWrapper}>
+        <AboutShape />
+      </AboutShapeWrapper>
       <div className="container">
         <div className="row about">
           <div className="col-lg-6 about__image">
