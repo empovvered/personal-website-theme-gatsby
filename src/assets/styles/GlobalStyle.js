@@ -78,6 +78,8 @@ const GlobalStyle = createGlobalStyle`
     
     .sub-title {
         font-size: 1.8rem;
+        margin-bottom: 10px;
+        display: block;
     }
   
    h1, h2, h3, h4, h5, h6 {
@@ -101,6 +103,13 @@ const GlobalStyle = createGlobalStyle`
         font-size: 2.8rem;
         @media ${device.md} {
             font-size: 2.25rem;
+        }
+    }
+    
+    h4 {
+        font-size: 2.4rem;
+        @media ${device.md} {
+            font-size: 2rem;
         }
     }
     h5 {

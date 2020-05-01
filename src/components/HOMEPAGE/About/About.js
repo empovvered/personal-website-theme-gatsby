@@ -53,7 +53,7 @@ const Introduction = () => {
 
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-    gsap.set(aboutSection, { y: 50 });
+    gsap.set(aboutSection, { y: 75 });
 
     tl.fromTo(
       rectangle,
@@ -70,16 +70,24 @@ const Introduction = () => {
     tl.to(aboutSection, { y: 0, autoAlpha: 1, duration: 1 }, "-=1.5");
   };
 
+  let sectionRatio = 0;
+
+  if (window.innerWidth < 768) {
+    sectionRatio = 0.5;
+  } else {
+    sectionRatio = 0.75;
+  }
+
   const intersection = useIntersection(aboutSectionWrapper, {
     root: null,
     rootMargin: "0px",
-    threshold: 1,
+    threshold: sectionRatio,
   });
 
   useEffect(() => {
     if (
       intersection &&
-      intersection.intersectionRatio > 0.5 &&
+      intersection.intersectionRatio > sectionRatio &&
       animated === false
     ) {
       animateAbout();
@@ -103,14 +111,15 @@ const Introduction = () => {
             <nav className="about__nav">
               <ul>
                 {dummyData.map((item) => (
-                  <AboutNavItem
-                    active={currentTab === item.id && true}
-                    onClick={() => setCurrentTab(item.id)}
-                    className="sub-title"
-                    key={item.id}
-                  >
-                    {item.title}
-                  </AboutNavItem>
+                  <li key={item.id}>
+                    <AboutNavItem
+                      active={currentTab === item.id && true}
+                      onClick={() => setCurrentTab(item.id)}
+                      className="sub-title"
+                    >
+                      {item.title}
+                    </AboutNavItem>
+                  </li>
                 ))}
               </ul>
             </nav>

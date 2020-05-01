@@ -38,6 +38,8 @@ export const IntroductionComponent = styled.section`
   padding-bottom: 93px;
   .intro {
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
     @media ${device.md} {
       flex-direction: column;
       text-align: center;
@@ -72,10 +74,6 @@ export const IntroductionComponent = styled.section`
   }
   .intro__text {
     padding-left: 90px;
-    .sub-title {
-      margin-bottom: 10px;
-      display: block;
-    }
     p {
       color: ${({ theme }) => theme.textGray};
     }

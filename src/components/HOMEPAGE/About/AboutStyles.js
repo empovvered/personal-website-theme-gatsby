@@ -63,10 +63,6 @@ export const AboutComponent = styled.section`
       }
     }
     &__info {
-      .sub-title {
-        margin-bottom: 10px;
-        display: block;
-      }
       @media ${device.md} {
         display: flex;
         flex-direction: column;
@@ -106,14 +102,14 @@ export const AboutComponent = styled.section`
   }
 `;
 
-export const AboutNavItem = styled.li`
+export const AboutNavItem = styled.button`
   margin-right: 41px;
   cursor: pointer;
   position: relative;
   text-transform: capitalize;
-  :last-child {
-    margin-right: 0;
-  }
+  background-color: transparent;
+  border: 0;
+  display: block;
   :after {
     content: "";
     background-color: ${({ theme }) => theme.primary};
@@ -123,6 +119,9 @@ export const AboutNavItem = styled.li`
     width: 100%;
     height: 2px;
     transform: scale(0);
+  }
+  @media ${device.xs} {
+    margin-right: 10px;
   }
   ${({ active }) =>
     active &&
