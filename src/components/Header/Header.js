@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <HeaderComponent isHeaderFixed={isHeaderFixed}>
       <div className="container header-inner ">
-        <Link to="/" className="header-logo">
+        <Link to="/" className="header__logo">
           E
         </Link>
         <MainNavigation isMenuOpen={isMenuOpen} />
