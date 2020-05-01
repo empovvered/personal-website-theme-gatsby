@@ -75,7 +75,7 @@ const Header = () => {
           E
         </Link>
         <MainNavigation isMenuOpen={isMenuOpen} />
-        <Socials isMenuOpen={isMenuOpen} />
+        <Socials isMenuOpen={isMenuOpen} isHeaderFixed={isHeaderFixed} />
         <Hamburger
           isMenuOpen={isMenuOpen}
           toggleMobileMenu={toggleMobileMenu}

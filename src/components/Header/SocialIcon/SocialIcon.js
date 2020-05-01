@@ -14,6 +14,8 @@ const SocialIconComponent = styled.a`
   background-repeat: no-repeat;
   display: block;
   cursor: pointer;
+  background-color: ${({ isHeaderFixed, theme }) =>
+    isHeaderFixed ? theme.primary : "transparent"};
   :last-child {
     margin-right: 0;
   }
@@ -27,10 +29,13 @@ const SocialIconComponent = styled.a`
   }
 `;
 
-const SocialIcon = ({ icon }) => <SocialIconComponent icon={icon} />;
+const SocialIcon = ({ icon, isHeaderFixed }) => (
+  <SocialIconComponent isHeaderFixed={isHeaderFixed} icon={icon} />
+);
 
 SocialIcon.propTypes = {
   icon: PropTypes.string.isRequired,
+  isHeaderFixed: PropTypes.bool.isRequired,
 };
 
 export default SocialIcon;

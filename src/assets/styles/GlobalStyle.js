@@ -24,8 +24,7 @@ const GlobalStyle = createGlobalStyle`
     
     @media (min-width: 1200px) {
         .container {
-            max-width: 1650px;
-            padding: 0 100px;
+            max-width: 1340px;
         }
     }
     
@@ -44,51 +43,78 @@ const GlobalStyle = createGlobalStyle`
     
     section {
         margin: 50px 0;
+        @media ${device.lg} {
+            margin: 35px 0;
+        }
+        @media ${device.xs} {
+            margin: 25px 0;
+        }
+    }
+    
+    .d1 {
+        font-size: 10.2rem;
+        @media ${device.md} {
+            font-size: 8.16rem;
+        }
+    }
+    
+    .d2 {
+        font-size: 7rem;
+        @media ${device.md} {
+            font-size: 5.6rem;
+        }
+    }
+    
+    .d3 {
+        font-size: 6rem;
+        @media ${device.md} {
+            font-size: 4.8rem;
+        }
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .sub-title {
+        font-size: 1.8rem;
     }
   
-    p {
-        margin: 0 0 1.15rem;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0 0 1.05rem;
+   h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 0.5em;
         line-height: 1.15;
     }
-    
+      
     h1 {
         font-size: 4.8rem;
-        margin: 0 0 30px;
-        @media ${device.lg} {
+        @media ${device.md} {
             font-size: 3.8rem;
-            margin: 0 0 20px;
         }
     }
     h2 {
         font-size: 3.4rem;
-        @media ${device.lg} {
+        @media ${device.md} {
             font-size: 2.7rem;
-            margin: 0 0 20px;
         }
     }
     h3 {
         font-size: 2.8rem;
-        @media ${device.lg} {
+        @media ${device.md} {
             font-size: 2.25rem;
-            margin: 0 0 20px;
         }
     }
     h5 {
         font-size: 1.8rem;
-        @media ${device.lg} {
-            font-size: 1.6rem;
-        }
     }
     h6 {
         font-size: 1.6rem;
-        @media ${device.lg} {
-            font-size: 1.45rem;
-        }
     }
+    p {
+        margin: 0 0 1.15rem;
+        line-height: 25px;
+        letter-spacing: 0;
+    }
+    
 `;
 
 export default GlobalStyle;

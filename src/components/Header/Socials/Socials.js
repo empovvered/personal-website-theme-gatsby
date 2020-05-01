@@ -25,16 +25,17 @@ const SocialsComponent = styled.div`
   }
 `;
 
-const Socials = ({ isMenuOpen }) => (
+const Socials = ({ isMenuOpen, isHeaderFixed }) => (
   <SocialsComponent isMenuOpen={isMenuOpen}>
-    <SocialIcon href="#" icon={twitterIcon} />
-    <SocialIcon href="#" icon={instagramIcon} />
-    <SocialIcon href="#" icon={facebookIcon} />
+    <SocialIcon isHeaderFixed={isHeaderFixed} href="#" icon={twitterIcon} />
+    <SocialIcon isHeaderFixed={isHeaderFixed} href="#" icon={instagramIcon} />
+    <SocialIcon isHeaderFixed={isHeaderFixed} href="#" icon={facebookIcon} />
   </SocialsComponent>
 );
 
 Socials.propTypes = {
   isMenuOpen: PropTypes.bool.isRequired,
+  isHeaderFixed: PropTypes.bool.isRequired,
 };
 
 export default Socials;
