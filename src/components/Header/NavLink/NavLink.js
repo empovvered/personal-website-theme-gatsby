@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const NavLinkComponent = styled(Link)`
-  font-size: ${({ theme }) => theme.font.size.title};
+  font-size: 1.6rem;
   text-decoration: none;
   color: ${({ theme }) => theme.textBlack};
   font-weight: 500;
@@ -21,6 +21,9 @@ const NavLinkComponent = styled(Link)`
 
   :hover::after {
     width: 50%;
+  }
+  &.active {
+    color: ${({ theme }) => theme.primary};
   }
 `;
 
