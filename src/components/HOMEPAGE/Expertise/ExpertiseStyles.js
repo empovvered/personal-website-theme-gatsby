@@ -3,7 +3,7 @@ import rigthArrow from "assets/icons/right-arrow.svg";
 import { device } from "assets/styles/mediaQueries";
 
 const ExpertiseComponent = styled.section`
-  padding: 157px 0 0;
+  padding: 157px 0 33px;
   opacity: 0;
   visibility: hidden;
   .expertise {
@@ -94,7 +94,7 @@ const ExpertiseComponent = styled.section`
     }
   }
   @media ${device.sm} {
-    padding: 75px 0 0;
+    padding: 50px 0 20px;
   }
 `;
 

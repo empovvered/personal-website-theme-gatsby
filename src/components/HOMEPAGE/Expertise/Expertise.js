@@ -23,7 +23,9 @@ const Expertise = () => {
 
   let sectionRatio = 0;
 
-  if (window.innerWidth <= 768) {
+  const module = typeof window !== `undefined`;
+
+  if (module <= 768) {
     sectionRatio = 0.5;
   } else {
     sectionRatio = 0.75;
