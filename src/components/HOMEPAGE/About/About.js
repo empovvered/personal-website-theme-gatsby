@@ -10,6 +10,7 @@ import {
 import aboutPortrait from "assets/images/about-portrait.png";
 import AboutShape from "assets/images/about-shape.inline.svg";
 import gsap from "gsap";
+import { isBrowser } from "utils/isBrowser";
 
 const dummyData = [
   {
@@ -72,7 +73,7 @@ const Introduction = () => {
 
   let sectionRatio = 0;
 
-  if (window.innerWidth < 768) {
+  if (isBrowser() && window.innerWidth < 768) {
     sectionRatio = 0.5;
   } else {
     sectionRatio = 0.75;

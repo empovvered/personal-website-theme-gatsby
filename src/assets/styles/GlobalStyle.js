@@ -51,6 +51,15 @@ const GlobalStyle = createGlobalStyle`
         }
     }
     
+    figure {
+        margin: 0;
+    }
+    
+    img {
+        vertical-align: middle;
+        max-width: 100%;
+    }
+    
     .d1 {
         font-size: 10.2rem;
         @media ${device.md} {
@@ -70,6 +79,10 @@ const GlobalStyle = createGlobalStyle`
         @media ${device.md} {
             font-size: 4.8rem;
         }
+    }
+    
+    .small {
+        font-size: 1.3rem;
     }
     
     .title {

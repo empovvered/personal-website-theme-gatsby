@@ -6,6 +6,7 @@ import TargetIcon from "assets/icons/target.inline.svg";
 import ShareIcon from "assets/icons/share.inline.svg";
 import gsap from "gsap";
 import { useIntersection } from "react-use";
+import { isBrowser } from "utils/isBrowser";
 
 const Expertise = () => {
   const [animated, setAnimated] = useState(false);
@@ -23,9 +24,7 @@ const Expertise = () => {
 
   let sectionRatio = 0;
 
-  const module = typeof window !== `undefined`;
-
-  if (module <= 768) {
+  if (isBrowser() && window.innerWidth <= 768) {
     sectionRatio = 0.5;
   } else {
     sectionRatio = 0.75;
@@ -47,6 +46,7 @@ const Expertise = () => {
       setAnimated(true);
     }
   });
+
   return (
     <ExpertiseComponent ref={expertiseSectionWrapper}>
       <div className="container expertise">
