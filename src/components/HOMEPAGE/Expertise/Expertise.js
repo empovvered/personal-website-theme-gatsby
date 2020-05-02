@@ -4,23 +4,13 @@ import ExpertiseComponent from "components/HOMEPAGE/Expertise/ExpertiseStyles";
 import DesktopIcon from "assets/icons/desktop.inline.svg";
 import TargetIcon from "assets/icons/target.inline.svg";
 import ShareIcon from "assets/icons/share.inline.svg";
-import gsap from "gsap";
 import { useIntersection } from "react-use";
 import { isBrowser } from "utils/isBrowser";
+import { fadeIn } from "assets/styles/animations";
 
 const Expertise = () => {
   const [animated, setAnimated] = useState(false);
   const expertiseSectionWrapper = useRef(null);
-
-  const animateAbout = () => {
-    const expertiseSection = expertiseSectionWrapper.current;
-
-    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-
-    gsap.set(expertiseSection, { y: 75 });
-
-    tl.to(expertiseSection, { y: 0, autoAlpha: 1, duration: 1 });
-  };
 
   let sectionRatio = 0;
 
@@ -42,7 +32,7 @@ const Expertise = () => {
       intersection.intersectionRatio > sectionRatio &&
       animated === false
     ) {
-      animateAbout();
+      fadeIn(expertiseSectionWrapper);
       setAnimated(true);
     }
   });

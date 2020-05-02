@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import {
   PortfolioComponent,
@@ -8,6 +8,8 @@ import {
 import { isBrowser } from "utils/isBrowser";
 
 import portfolioItem from "assets/images/portfolio-item.png";
+import { useIntersection } from "react-use";
+import { fadeIn } from "assets/styles/animations";
 
 const dummyData = {
   categories: [
@@ -97,6 +99,8 @@ const dummyData = {
 
 const Portfolio = () => {
   const [currentTab, setActiveTab] = useState(dummyData.categories[0].id);
+  const [animated, setAnimated] = useState(false);
+  const portfolioSectionWrapper = useRef(null);
 
   let itemsLimit = 0;
 
@@ -110,8 +114,33 @@ const Portfolio = () => {
     .filter((item) => item.categoryId === currentTab)
     .slice(0, itemsLimit);
 
+  let sectionRatio = 0;
+
+  if (isBrowser() && window.innerWidth <= 768) {
+    sectionRatio = 0.5;
+  } else {
+    sectionRatio = 0.75;
+  }
+
+  const intersection = useIntersection(portfolioSectionWrapper, {
+    root: null,
+    rootMargin: "0px",
+    threshold: sectionRatio,
+  });
+
+  useEffect(() => {
+    if (
+      intersection &&
+      intersection.intersectionRatio > sectionRatio &&
+      animated === false
+    ) {
+      fadeIn(portfolioSectionWrapper);
+      setAnimated(true);
+    }
+  });
+
   return (
-    <PortfolioComponent>
+    <PortfolioComponent ref={portfolioSectionWrapper}>
       <div className="portfolio">
         <div className="portfolio__headings">
           <div className="container">
