@@ -5,7 +5,6 @@ import { device } from "assets/styles/mediaQueries";
 const ExpertiseComponent = styled.section`
   padding: 157px 0 33px;
   opacity: 0;
-  visibility: hidden;
   .expertise {
     &__headings {
       display: flex;

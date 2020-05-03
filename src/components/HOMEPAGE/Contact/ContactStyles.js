@@ -5,7 +5,6 @@ export const ContactComponent = styled.section`
   margin: 150px 0 100px;
   position: relative;
   opacity: 0;
-  visibility: hidden;
   .contact {
     display: flex;
     justify-content: center;

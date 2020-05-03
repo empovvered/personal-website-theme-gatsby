@@ -5,6 +5,7 @@ import { theme } from "assets/styles/theme";
 import styled, { ThemeProvider } from "styled-components";
 import SEO from "components/Seo/SEO";
 import Header from "components/Header/Header";
+import Footer from "components/Footer/Footer";
 import { device } from "assets/styles/mediaQueries";
 
 const Primary = styled.div`
@@ -26,6 +27,7 @@ const MainLayout = ({ children }) => (
           {children}
         </main>
       </Primary>
+      <Footer />
     </ThemeProvider>
   </>
 );

@@ -17,8 +17,13 @@ const Socials = ({ isMenuOpen, isHeaderFixed }) => (
 );
 
 Socials.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired,
-  isHeaderFixed: PropTypes.bool.isRequired,
+  isMenuOpen: PropTypes.bool,
+  isHeaderFixed: PropTypes.bool,
+};
+
+Socials.defaultProps = {
+  isMenuOpen: false,
+  isHeaderFixed: false,
 };
 
 export default Socials;

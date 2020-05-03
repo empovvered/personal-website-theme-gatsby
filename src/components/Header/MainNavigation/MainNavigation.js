@@ -37,7 +37,11 @@ const MainNavigation = ({ isMenuOpen }) => (
 );
 
 MainNavigation.propTypes = {
-  isMenuOpen: PropTypes.bool.isRequired,
+  isMenuOpen: PropTypes.bool,
+};
+
+MainNavigation.defaultProps = {
+  isMenuOpen: false,
 };
 
 export default MainNavigation;

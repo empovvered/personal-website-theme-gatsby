@@ -39,7 +39,6 @@ export const AboutComponent = styled.section`
   padding-top: 75px;
   position: relative;
   opacity: 0;
-  visibility: hidden;
   .about {
     &__image {
       &__element {

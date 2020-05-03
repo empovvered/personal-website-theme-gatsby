@@ -39,7 +39,6 @@ export const IntroductionComponent = styled.section`
   .intro {
     align-items: center;
     opacity: 0;
-    visibility: hidden;
     @media ${device.md} {
       flex-direction: column;
       text-align: center;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "assets/styles/mediaQueries";
 
-const HeaderComponent = styled.div`
+const HeaderComponent = styled.header`
   width: 100%;
   position: fixed;
   background-color: ${({ isHeaderFixed }) =>

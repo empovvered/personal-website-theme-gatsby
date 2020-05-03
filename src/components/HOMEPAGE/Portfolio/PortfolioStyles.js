@@ -3,7 +3,6 @@ import { device } from "assets/styles/mediaQueries";
 import ButtonComponent from "components/Button/Button";
 
 export const PortfolioComponent = styled.section`
-  visibility: hidden;
   opacity: 0;
   .portfolio {
     &__headings {

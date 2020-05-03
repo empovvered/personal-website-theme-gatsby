@@ -5,7 +5,6 @@ import quoteIcon from "assets/icons/quote.svg";
 export const ClientsComponent = styled.section`
   padding-top: 50px;
   opacity: 0;
-  visibility: hidden;
   .clients {
     &__headings {
       display: flex;
