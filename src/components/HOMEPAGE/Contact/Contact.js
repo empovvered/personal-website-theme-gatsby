@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import {
   ContactComponent,
   ContactShapeWrapper,
@@ -8,12 +7,39 @@ import ButtonComponent from "components/Button/Button";
 import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";
 import { useIntersection } from "react-use";
+import { encode } from "utils/encode";
+import { navigate } from "gatsby";
 import ContactShape from "assets/images/contact-shape.inline.svg";
 
 const Contact = () => {
   const [animated, setAnimated] = useState(false);
   const contactSectionWrapper = useRef(null);
   const contactShapeWrapper = useRef(null);
+
+  const [state, setState] = React.useState({});
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    if (typeof window !== "undefined") {
+      window
+        .fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": form.getAttribute("name"),
+            ...state,
+          }),
+        })
+        .then(() => navigate(form.getAttribute("action")))
+        // eslint-disable-next-line no-alert
+        .catch((error) => window.alert(error));
+    }
+  };
 
   const animateAbout = () => {
     const [elements] = contactShapeWrapper.current.children;
@@ -78,11 +104,21 @@ const Contact = () => {
         <div className="row contact">
           <form
             name="contact"
-            method="POST"
+            method="post"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             className="contact__form"
+            action="/"
+            onSubmit={handleSubmit}
           >
             <h5>Fell free to contact me and say hello!</h5>
+            <input type="hidden" name="contact" value="contact" />
+            <p hidden>
+              <label htmlFor="hidden">
+                Don’t fill this out:{" "}
+                <input name="bot-field" onChange={handleChange} id="hidden" />
+              </label>
+            </p>
             <fieldset>
               <label htmlFor="name">
                 <span>Name:</span>
@@ -91,6 +127,7 @@ const Contact = () => {
                   name="name"
                   id="name"
                   placeholder="Your name"
+                  onChange={handleChange}
                 />
               </label>
               <label htmlFor="email">
@@ -100,6 +137,7 @@ const Contact = () => {
                   name="email"
                   id="email"
                   placeholder="Your E-mail"
+                  onChange={handleChange}
                 />
               </label>
               <label htmlFor="message">
@@ -108,6 +146,7 @@ const Contact = () => {
                   name="message"
                   id="message"
                   placeholder="Your message"
+                  onChange={handleChange}
                 />
               </label>
             </fieldset>
