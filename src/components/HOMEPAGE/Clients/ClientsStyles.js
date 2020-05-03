@@ -143,9 +143,9 @@ export const ClientsShapeWrapper = styled.div`
     height: auto;
   }
   @media (max-width: 1600px) {
-    width: 500px;
+    width: 400px;
     svg {
-      width: 500px;
+      width: 400px;
     }
   }
   @media ${device.sm} {

@@ -5,6 +5,7 @@ import About from "components/HOMEPAGE/About/About";
 import Expertise from "components/HOMEPAGE/Expertise/Expertise";
 import Portfolio from "components/HOMEPAGE/Portfolio/Portfolio";
 import Clients from "components/HOMEPAGE/Clients/Clients";
+import Contact from "components/HOMEPAGE/Contact/Contact";
 
 const IndexPage = () => {
   return (
@@ -15,6 +16,7 @@ const IndexPage = () => {
         <Expertise />
         <Portfolio />
         <Clients />
+        <Contact />
       </MainLayout>
     </>
   );

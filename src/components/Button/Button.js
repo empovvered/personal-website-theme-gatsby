@@ -9,7 +9,7 @@ const ButtonComponent = styled.button`
   color: ${({ theme }) => theme.textWhite};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
+  border: 0;
   :hover {
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
     transform: translateY(-5px);
