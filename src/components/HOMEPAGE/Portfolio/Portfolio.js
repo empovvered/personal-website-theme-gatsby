@@ -117,9 +117,9 @@ const Portfolio = () => {
   let sectionRatio = 0;
 
   if (isBrowser() && window.innerWidth <= 768) {
-    sectionRatio = 0.5;
+    sectionRatio = 0.2;
   } else {
-    sectionRatio = 0.75;
+    sectionRatio = 0.2;
   }
 
   const intersection = useIntersection(portfolioSectionWrapper, {
