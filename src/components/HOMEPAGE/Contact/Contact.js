@@ -8,7 +8,6 @@ import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";
 import { useIntersection } from "react-use";
 import { encode } from "utils/encode";
-import { navigate } from "gatsby";
 import ContactShape from "assets/images/contact-shape.inline.svg";
 
 const Contact = () => {
@@ -35,7 +34,8 @@ const Contact = () => {
             ...state,
           }),
         })
-        .then(() => navigate(form.getAttribute("action")))
+        // eslint-disable-next-line no-console
+        .then(() => console.log("submited"))
         // eslint-disable-next-line no-alert
         .catch((error) => window.alert(error));
     }
@@ -108,7 +108,6 @@ const Contact = () => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className="contact__form"
-            action="/"
             onSubmit={handleSubmit}
           >
             <h5>Fell free to contact me and say hello!</h5>

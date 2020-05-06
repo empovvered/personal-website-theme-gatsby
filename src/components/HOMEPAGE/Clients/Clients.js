@@ -22,7 +22,7 @@ const Clients = () => {
   const clientsSectionWrapper = useRef(null);
   const clientsShapeWrapper = useRef(null);
 
-  const animateAbout = () => {
+  const animateClients = () => {
     const [elements] = clientsShapeWrapper.current.children;
     const clientsSection = clientsSectionWrapper.current;
 
@@ -71,7 +71,7 @@ const Clients = () => {
       intersection.intersectionRatio > sectionRatio &&
       animated === false
     ) {
-      animateAbout();
+      animateClients();
       setAnimated(true);
     }
   });
