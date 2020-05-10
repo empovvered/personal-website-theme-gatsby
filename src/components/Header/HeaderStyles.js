@@ -13,31 +13,31 @@ const HeaderComponent = styled.header`
   padding: 10px 0;
   top: 0;
   z-index: 10;
-  .header__inner {
+  .header {
     align-items: center;
     justify-content: space-between;
     display: flex;
-  }
-  .header__logo {
-    font-size: 3.4rem;
-    text-decoration: none;
-    color: ${({ theme }) => theme.textWhite};
-    background-color: ${({ theme }) => theme.primary};
-    width: 55px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin-right: 60px;
+    &__logo {
+      font-size: 3.4rem;
+      text-decoration: none;
+      color: ${({ theme }) => theme.textWhite};
+      background-color: ${({ theme }) => theme.primary};
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin-right: 60px;
 
-    &:hover {
-      transform: scale(1.05);
-    }
+      &:hover {
+        transform: scale(1.05);
+      }
 
-    @media ${device.sm} {
-      z-index: 10;
-      margin-right: 0;
+      @media ${device.sm} {
+        z-index: 10;
+        margin-right: 0;
+      }
     }
   }
 `;

@@ -144,14 +144,14 @@ const Portfolio = () => {
       <div className="portfolio">
         <div className="portfolio__headings">
           <div className="container">
-            <div className="portfolio__headings__title">
+            <div className="portfolio__title">
               <h1 className="d3">Select Portfolio</h1>
               <p>
                 Freelance UI/UX Designer, also passionate in making beautiful
                 illustrations and icons
               </p>
             </div>
-            <nav className="portfolio__headings__nav">
+            <nav className="portfolio__nav">
               <ul>
                 {dummyData.categories.map((item) => (
                   <li key={item.id}>
@@ -174,7 +174,7 @@ const Portfolio = () => {
         <div className="portfolio__grid container-fluid">
           <div className="row">
             {portfolioItems.map((item) => (
-              <div key={item.id} className="portfolio__grid__item col-lg-4">
+              <div key={item.id} className="portfolio__grid-item col-lg-4">
                 <Link to="/">
                   <figure>
                     <img src={portfolioItem} alt="" />

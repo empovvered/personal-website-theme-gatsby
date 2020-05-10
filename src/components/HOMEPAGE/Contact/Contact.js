@@ -107,21 +107,34 @@ const Contact = () => {
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            className="contact__form"
+            className="contact__wrapper"
             onSubmit={handleSubmit}
           >
-            <h5>Fell free to contact me and say hello!</h5>
-            <input type="hidden" name="contact" value="contact" />
+            <h5 className="contact__title">
+              Fell free to contact me and say hello!
+            </h5>
+            <input
+              className="contact__input"
+              type="hidden"
+              name="contact"
+              value="contact"
+            />
             <p hidden>
-              <label htmlFor="hidden">
+              <label className="contact__label" htmlFor="hidden">
                 Don’t fill this out:{" "}
-                <input name="bot-field" onChange={handleChange} id="hidden" />
+                <input
+                  className="contact__input"
+                  name="bot-field"
+                  onChange={handleChange}
+                  id="hidden"
+                />
               </label>
             </p>
-            <fieldset>
-              <label htmlFor="name">
-                <span>Name:</span>
+            <fieldset className="contact__fieldset">
+              <label className="contact__label" htmlFor="name">
+                <span className="contact__label-text">Name:</span>
                 <input
+                  className="contact__input"
                   type="text"
                   name="name"
                   id="name"
@@ -129,9 +142,10 @@ const Contact = () => {
                   onChange={handleChange}
                 />
               </label>
-              <label htmlFor="email">
-                <span>Email:</span>
+              <label className="contact__label" htmlFor="email">
+                <span className="contact__label-text">Email:</span>
                 <input
+                  className="contact__input"
                   type="text"
                   name="email"
                   id="email"
@@ -139,17 +153,20 @@ const Contact = () => {
                   onChange={handleChange}
                 />
               </label>
-              <label htmlFor="message">
-                <span>Message:</span>
+              <label className="contact__label" htmlFor="message">
+                <span className="contact__label-text">Message:</span>
                 <textarea
                   name="message"
                   id="message"
                   placeholder="Your message"
                   onChange={handleChange}
+                  className="contact__textarea"
                 />
               </label>
             </fieldset>
-            <ButtonComponent type="submit">Send Message</ButtonComponent>
+            <ButtonComponent className="contact__buttom" type="submit">
+              Send Message
+            </ButtonComponent>
           </form>
         </div>
       </div>

@@ -50,7 +50,7 @@ const Expertise = () => {
         </div>
         <div className="row expertise__content">
           <div className="col-lg-4">
-            <div className="expertise__content__box">
+            <div className="expertise__box">
               <DesktopIcon />
               <h4>UI/UX Design</h4>
               <p className="sub-title">
@@ -61,7 +61,7 @@ const Expertise = () => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="expertise__content__box">
+            <div className="expertise__box">
               <TargetIcon />
               <h4>Local SEO</h4>
               <p className="sub-title">
@@ -72,7 +72,7 @@ const Expertise = () => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div className="expertise__content__box">
+            <div className="expertise__box">
               <ShareIcon />
               <h4>Social Media Marketing</h4>
               <p className="sub-title">

@@ -111,7 +111,7 @@ const Clients = () => {
         </div>
         <Slider {...carouselSettings} className="clients__slider">
           <div>
-            <div className="clients__slider__item">
+            <div className="clients__slider-item">
               <img src={clientPortrait} alt="" />
               <blockquote>
                 <p>
@@ -126,7 +126,7 @@ const Clients = () => {
             </div>
           </div>
           <div>
-            <div className="clients__slider__item">
+            <div className="clients__slider-item">
               <img src={clientPortrait} alt="" />
               <blockquote>
                 <p>
@@ -144,7 +144,7 @@ const Clients = () => {
             </div>
           </div>
           <div>
-            <div className="clients__slider__item">
+            <div className="clients__slider-item">
               <img src={clientPortrait} alt="" />
               <blockquote>
                 <p>

@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <HeaderComponent isHeaderFixed={isHeaderFixed}>
-      <div className="container header__inner ">
+      <div className="container header ">
         <Link to="/" className="header__logo">
           E
         </Link>

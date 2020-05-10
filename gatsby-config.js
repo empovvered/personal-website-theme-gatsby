@@ -16,7 +16,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "wordpress",
         // Url to query from
-        url: "https://personalwebsitetheme.local//wp/graphql",
+        url: "https://personalwebsitetheme.local/wp/graphql",
         // refetch interval in seconds
         // refetchInterval: 600,
       },
@@ -49,6 +49,7 @@ module.exports = {
         pages: path.join(__dirname, "src/pages"),
         templates: path.join(__dirname, "src/templates"),
         utils: path.join(__dirname, "src/utils"),
+        hooks: path.join(__dirname, "src/hooks"),
         src: path.join(__dirname, "src"),
       },
     },

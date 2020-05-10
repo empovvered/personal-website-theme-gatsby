@@ -24,60 +24,10 @@ const ExpertiseComponent = styled.section`
       }
     }
     &__content {
-      &__box {
-        padding: 55px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        border-radius: 18px;
-        transition: transform 0.3s cubic-bezier(0, 0, 0.11, -1.53);
-        svg {
-          margin-bottom: 20px;
-        }
-        h4 {
-          font-weight: 500;
-          text-align: center;
-        }
-        p {
-          max-width: 75%;
-          text-align: center;
-          color: ${({ theme }) => theme.textGray};
-          @media ${device.xs} {
-            max-width: unset;
-          }
-        }
+      > div {
         :hover {
           transform: scale(1.03);
         }
-        a {
-          position: relative;
-          color: #159eff;
-          ::after {
-            content: "";
-            background-image: url(${rigthArrow});
-            width: 20px;
-            height: 11px;
-            position: absolute;
-            background-size: 100%;
-            background-repeat: no-repeat;
-            top: 60%;
-            transform: translateY(-50%) translateX(75%);
-            transition: transform 0.3s ease-in-out;
-            right: -10px;
-          }
-          :hover {
-            ::after {
-              transform: translateY(-50%) translateX(100%);
-            }
-          }
-        }
-        @media ${device.sm} {
-          margin-bottom: 45px;
-          padding: 30px 12px;
-        }
-      }
-      > div {
         :nth-child(2) {
           transform: translateY(-40px);
           @media ${device.sm} {
@@ -89,6 +39,56 @@ const ExpertiseComponent = styled.section`
             margin-bottom: 0;
           }
         }
+      }
+    }
+    &__box {
+      padding: 55px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 18px;
+      transition: transform 0.3s cubic-bezier(0, 0, 0.11, -1.53);
+      svg {
+        margin-bottom: 20px;
+      }
+      h4 {
+        font-weight: 500;
+        text-align: center;
+      }
+      p {
+        max-width: 75%;
+        text-align: center;
+        color: ${({ theme }) => theme.textGray};
+        @media ${device.xs} {
+          max-width: unset;
+        }
+      }
+      a {
+        position: relative;
+        color: #159eff;
+        ::after {
+          content: "";
+          background-image: url(${rigthArrow});
+          width: 20px;
+          height: 11px;
+          position: absolute;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          top: 60%;
+          transform: translateY(-50%) translateX(75%);
+          transition: transform 0.3s ease-in-out;
+          right: -10px;
+        }
+        :hover {
+          ::after {
+            transform: translateY(-50%) translateX(100%);
+          }
+        }
+      }
+      @media ${device.sm} {
+        margin-bottom: 45px;
+        padding: 30px 12px;
       }
     }
   }

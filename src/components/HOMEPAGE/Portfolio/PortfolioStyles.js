@@ -8,30 +8,6 @@ export const PortfolioComponent = styled.section`
     &__headings {
       background-color: ${({ theme }) => theme.primary};
       padding: 136px 0 108px;
-      &__title {
-        color: ${({ theme }) => theme.textWhite};
-        p {
-          max-width: 330px;
-        }
-      }
-      &__nav {
-        margin: 33px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        ul {
-          padding: 0;
-          margin: 0;
-          list-style: none;
-          display: flex;
-          @media ${device.sm} {
-            flex-direction: column;
-          }
-        }
-        @media ${device.sm} {
-          align-items: center;
-        }
-      }
       @media ${device.sm} {
         padding: 75px 0 50px;
       }
@@ -39,42 +15,64 @@ export const PortfolioComponent = styled.section`
         padding: 50px 0 35px;
       }
     }
-    &__grid {
-      &__item {
+    &__nav {
+      margin: 33px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      ul {
         padding: 0;
-        transition: all 0.2s ease-in-out;
-        figure {
-          position: relative;
-          figcaption {
-            position: absolute;
-            color: ${({ theme }) => theme.textWhite};
-            width: 100%;
-            height: 33%;
-            bottom: 0;
-            background-color: ${({ theme }) => theme.primary};
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            pointer-events: none;
-            display: flex;
-            transition: all 0.2s 0.2s ease-in-out;
-            cursor: pointer;
-            small {
-              margin-bottom: 12px;
-            }
+        margin: 0;
+        list-style: none;
+        display: flex;
+        @media ${device.sm} {
+          flex-direction: column;
+        }
+      }
+      @media ${device.sm} {
+        align-items: center;
+      }
+    }
+    &__title {
+      color: ${({ theme }) => theme.textWhite};
+      p {
+        max-width: 330px;
+      }
+    }
+    &__grid-item {
+      padding: 0;
+      transition: all 0.2s ease-in-out;
+      figure {
+        position: relative;
+        figcaption {
+          position: absolute;
+          color: ${({ theme }) => theme.textWhite};
+          width: 100%;
+          height: 33%;
+          bottom: 0;
+          background-color: ${({ theme }) => theme.primary};
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          visibility: hidden;
+          opacity: 0;
+          pointer-events: none;
+          display: flex;
+          transition: all 0.2s 0.2s ease-in-out;
+          cursor: pointer;
+          small {
+            margin-bottom: 12px;
           }
         }
-        :hover {
-          transform: scale(1.1);
-          z-index: 1;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          figcaption {
-            visibility: visible;
-            opacity: 1;
-            pointer-events: all;
-          }
+      }
+      :hover {
+        transform: scale(1.1);
+        z-index: 1;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        figcaption {
+          visibility: visible;
+          opacity: 1;
+          pointer-events: all;
         }
       }
     }

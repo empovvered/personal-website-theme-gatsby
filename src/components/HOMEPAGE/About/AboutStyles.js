@@ -40,25 +40,25 @@ export const AboutComponent = styled.section`
   position: relative;
   opacity: 0;
   .about {
-    &__image {
-      &__element {
-        box-shadow: -40px 2px 80px rgba(0, 0, 0, 0.5);
-        width: 500px;
-        height: 500px;
-        border-radius: 23px;
-        @media ${device.lg} {
-          width: 350px;
-          height: 350px;
-        }
-        @media ${device.xs} {
-          width: 250px;
-          height: 250px;
-        }
-      }
+    &__image-box {
       @media ${device.xs} {
         display: flex;
         justify-content: center;
         margin-bottom: 50px;
+      }
+    }
+    &__image-element {
+      box-shadow: -40px 2px 80px rgba(0, 0, 0, 0.5);
+      width: 500px;
+      height: 500px;
+      border-radius: 23px;
+      @media ${device.lg} {
+        width: 350px;
+        height: 350px;
+      }
+      @media ${device.xs} {
+        width: 250px;
+        height: 250px;
       }
     }
     &__info {

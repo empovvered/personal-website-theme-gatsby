@@ -41,52 +41,52 @@ export const ClientsComponent = styled.section`
         margin-bottom: 50px;
       }
     }
-    &__slider {
-      &__item {
-        display: flex;
-        img {
-          width: 400px;
-          height: auto;
-          margin-right: 115px;
-          border-radius: 22px;
-          @media ${device.sm} {
-            margin-right: 0;
-          }
-          @media ${device.xs} {
-            width: 300px;
-          }
-        }
-        blockquote {
-          padding-top: 86px;
-          max-width: 500px;
-          position: relative;
-          p {
-            margin-bottom: 30px;
-            font-style: italic;
-          }
-          ::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 56px;
-            height: 56px;
-            background-image: url(${quoteIcon});
-            background-repeat: no-repeat;
-            @media ${device.xs} {
-              display: none;
-            }
-          }
-          @media ${device.xs} {
-            max-width: unset;
-            padding-top: 20px;
-          }
-        }
+    &__slider-item {
+      display: flex;
+      img {
+        width: 400px;
+        height: auto;
+        margin-right: 115px;
+        border-radius: 22px;
         @media ${device.sm} {
-          flex-direction: column;
-          align-items: center;
+          margin-right: 0;
+        }
+        @media ${device.xs} {
+          width: 300px;
         }
       }
+      blockquote {
+        padding-top: 86px;
+        max-width: 500px;
+        position: relative;
+        p {
+          margin-bottom: 30px;
+          font-style: italic;
+        }
+        ::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 56px;
+          height: 56px;
+          background-image: url(${quoteIcon});
+          background-repeat: no-repeat;
+          @media ${device.xs} {
+            display: none;
+          }
+        }
+        @media ${device.xs} {
+          max-width: unset;
+          padding-top: 20px;
+        }
+      }
+      @media ${device.sm} {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &__slider {
       .slick-dots {
         bottom: 10%;
         width: unset;

@@ -43,9 +43,17 @@ export const IntroductionComponent = styled.section`
       flex-direction: column;
       text-align: center;
     }
-  }
-  .intro__img {
-    text-align: right;
+    &__img {
+      text-align: right;
+      @media ${device.md} {
+        text-align: right;
+        order: 1;
+      }
+      @media ${device.xs} {
+        text-align: center;
+        margin-bottom: 33px;
+      }
+    }
     &__element {
       box-shadow: 40px 2px 80px rgba(0, 0, 0, 0.5);
       border-radius: 50%;
@@ -62,29 +70,22 @@ export const IntroductionComponent = styled.section`
         }
       }
     }
-    @media ${device.md} {
-      text-align: right;
-      order: 1;
-    }
-    @media ${device.xs} {
-      text-align: center;
-      margin-bottom: 33px;
-    }
-  }
-  .intro__text {
-    padding-left: 90px;
-    p {
-      color: ${({ theme }) => theme.textGray};
-    }
-    @media ${device.md} {
-      order: 2;
-      text-align: left;
-    }
-    @media ${device.xs} {
-      text-align: center;
-      padding-left: 15px;
+    &__text {
+      padding-left: 90px;
+      p {
+        color: ${({ theme }) => theme.textGray};
+      }
+      @media ${device.md} {
+        order: 2;
+        text-align: left;
+      }
+      @media ${device.xs} {
+        text-align: center;
+        padding-left: 15px;
+      }
     }
   }
+
   @media ${device.md} {
     padding-bottom: 50px;
   }

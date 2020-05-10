@@ -8,7 +8,7 @@ export const ContactComponent = styled.section`
   .contact {
     display: flex;
     justify-content: center;
-    &__form {
+    &__wrapper {
       width: 50vw;
       max-width: 800px;
       z-index: 1;
@@ -18,42 +18,6 @@ export const ContactComponent = styled.section`
       background-color: white;
       box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.2);
       border-radius: 18px;
-      h5 {
-        text-align: center;
-        margin-bottom: 60px;
-      }
-      fieldset {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        border: 0;
-        margin-bottom: 30px;
-        label {
-          width: 100%;
-          input {
-            width: 100%;
-            height: 36px;
-            border: 0;
-            border-bottom: 1px solid #aeb7c1;
-            margin-bottom: 39px;
-            padding: 0 10px;
-          }
-          textarea {
-            width: 100%;
-            border: 0;
-            border-bottom: 1px solid #aeb7c1;
-            padding: 10px;
-            height: 150px;
-          }
-          span {
-            display: none;
-          }
-        }
-      }
-      button {
-        margin: 0 auto;
-      }
       @media ${device.sm} {
         width: 75vw;
         padding: 40px 60px;
@@ -62,6 +26,42 @@ export const ContactComponent = styled.section`
         width: 90vw;
         padding: 30px 20px;
       }
+    }
+    &__title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    &__fieldset {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      border: 0;
+      margin-bottom: 30px;
+    }
+    &__label {
+      width: 100%;
+    }
+    &__input {
+      width: 100%;
+      height: 36px;
+      border: 0;
+      border-bottom: 1px solid #aeb7c1;
+      margin-bottom: 39px;
+      padding: 0 10px;
+    }
+    &__textarea {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #aeb7c1;
+      padding: 10px;
+      height: 150px;
+    }
+    &__label-text {
+      display: none;
+    }
+    &__button {
+      margin: 0 auto;
     }
   }
   @media ${device.sm} {

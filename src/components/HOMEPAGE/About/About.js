@@ -103,8 +103,8 @@ const Introduction = () => {
       </AboutShapeWrapper>
       <div className="container">
         <div className="row about">
-          <div className="col-lg-6 about__image">
-            <img className="about__image__element" src={aboutPortrait} alt="" />
+          <div className="col-lg-6 about__image-box">
+            <img className="about__image-element" src={aboutPortrait} alt="" />
           </div>
           <div className="col-lg-6 about__info">
             <small className="sub-title">A bit</small>

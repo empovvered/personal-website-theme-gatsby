@@ -53,7 +53,7 @@ const Introduction = () => {
           </div>
           <div className="col-lg-6 intro__img">
             <img
-              className="intro__img__element"
+              className="intro__element"
               src={introPortrait}
               alt="intro-placeholder"
             />

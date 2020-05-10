@@ -4,7 +4,7 @@ import { device } from "assets/styles/mediaQueries";
 const MainNavigationComponent = styled.nav`
   display: flex;
   align-items: center;
-  ul {
+  .main-navigation {
     padding: 0;
     margin: 0;
     display: flex;
@@ -13,7 +13,7 @@ const MainNavigationComponent = styled.nav`
       flex-direction: column;
       align-items: center;
     }
-    li {
+    &__item {
       padding: 0 23px;
       @media ${device.sm} {
         padding: 15px 0;
