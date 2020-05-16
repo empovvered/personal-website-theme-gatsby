@@ -5,7 +5,7 @@ import {
   StyledButtonComponent,
   AboutNavItem,
   AboutComponent,
-} from "components/HOMEPAGE/About/AboutStyles";
+} from "components/About/AboutStyles";
 
 import aboutPortrait from "assets/images/about-portrait.png";
 import AboutShape from "assets/images/about-shape.inline.svg";

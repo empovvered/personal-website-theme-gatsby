@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import ExpertiseComponent from "components/HOMEPAGE/Expertise/ExpertiseStyles";
+import ExpertiseComponent from "components/Expertise/ExpertiseStyles";
 
 import DesktopIcon from "assets/icons/desktop.inline.svg";
 import TargetIcon from "assets/icons/target.inline.svg";

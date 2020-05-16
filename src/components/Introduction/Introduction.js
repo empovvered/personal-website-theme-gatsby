@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import {
   IntroShapeWrapper,
   IntroductionComponent,
-} from "components/HOMEPAGE/Introduction/IntroductionStyles";
+} from "components/Introduction/IntroductionStyles";
 
 import Button from "components/Button/Button";
 import introPortrait from "assets/images/intro-portrait.png";
@@ -33,15 +33,16 @@ const Introduction = () => {
       [ornamentWhite, ornamentBlack, oval, rectangle2, rectangle1],
       { scaleY: 0 },
       { duration: 1, scaleY: 1 },
-      "-=0.75"
+      "-=0.75",
     );
     tl.to(introSection, { y: 0, autoAlpha: 1, duration: 1 }, "-=0.5");
   });
 
+
   return (
     <IntroductionComponent>
       <IntroShapeWrapper ref={shapeWrapper}>
-        <IntroShape />
+        <IntroShape/>
       </IntroShapeWrapper>
       <div className="container">
         <div className="row intro" ref={introSectionWrapper}>

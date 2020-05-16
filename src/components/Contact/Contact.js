@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   ContactComponent,
   ContactShapeWrapper,
-} from "components/HOMEPAGE/Contact/ContactStyles";
+} from "components/Contact/ContactStyles";
 import ButtonComponent from "components/Button/Button";
 import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";

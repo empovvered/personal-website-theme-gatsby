@@ -7,13 +7,13 @@ import { useQueryMenuData } from "hooks/useQueryMenuData";
 import { useRelative } from "hooks/useRelative";
 
 const MainNavigation = ({ isMenuOpen }) => {
-  const mainMenu = useQueryMenuData().nodes.find(
-    (menu) => menu.slug === "main-menu"
+  const headerMenu = useQueryMenuData().nodes.find(
+    (menu) => menu.slug === "header-menu"
   );
   return (
     <MainNavigationComponent isMenuOpen={isMenuOpen}>
       <ul className="main-navigation">
-        {mainMenu.menuItems.nodes.map((item) => {
+        {headerMenu.menuItems.nodes.map((item) => {
           const relativeLink = useRelative(item.url);
           return (
             <li key={item.id} className="main-navigation__item">

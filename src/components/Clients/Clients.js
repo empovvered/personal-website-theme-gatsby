@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import {
   ClientsComponent,
   ClientsShapeWrapper,
-} from "components/HOMEPAGE/Clients/ClientsStyles";
+} from "components/Clients/ClientsStyles";
 
 import newscomauLogo from "assets/images/newscom.au-logo.png";
 import businessInsiderLogo from "assets/images/business-insider-logo.png";

@@ -29,7 +29,7 @@ module.exports = async ({ actions, graphql }) => {
 
       createPage({
         path: uri,
-        component: path.resolve(`./src/templates/Page.js`),
+        component: path.resolve(`./src/templates/Page/Page.js`),
         context: {
           ...page,
           title: page.title,
@@ -38,3 +38,4 @@ module.exports = async ({ actions, graphql }) => {
     });
   });
 };
+

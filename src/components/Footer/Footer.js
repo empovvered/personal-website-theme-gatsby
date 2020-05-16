@@ -7,8 +7,8 @@ const Footer = () => (
   <FooterComponent>
     <div className="container">
       <div className="row footer">
-        <MainNavigation />
-        <Socials />
+        <MainNavigation/>
+        <Socials/>
         <div className="footer__copyright">
           <small className="small"> © 2020. All right reserved</small>
         </div>

@@ -7,18 +7,19 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    // Simple config, passing URL
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/assets/`,
+      },
+    },
     {
       resolve: "gatsby-source-graphql",
       options: {
-        // Arbitrary name for the remote schema Query type
         typeName: "WORDPRESS",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "wordpress",
-        // Url to query from
-        url: "https://personalwebsitetheme.local/wp/graphql",
-        // refetch interval in seconds
-        // refetchInterval: 600,
+        url: "http://personalwebsitetheme.local/wp/graphql",
+        refetchInterval: 60,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -57,13 +58,6 @@ module.exports = {
       resolve: "gatsby-plugin-styled-components",
       options: {
         displayName: true,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
       },
     },
     {

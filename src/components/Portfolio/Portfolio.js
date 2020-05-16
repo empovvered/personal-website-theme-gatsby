@@ -4,7 +4,7 @@ import {
   PortfolioComponent,
   AboutNavItem,
   StyledButtonComponent,
-} from "components/HOMEPAGE/Portfolio/PortfolioStyles";
+} from "components/Portfolio/PortfolioStyles";
 import { isBrowser } from "utils/isBrowser";
 
 import portfolioItem from "assets/images/portfolio-item.png";
@@ -12,24 +12,6 @@ import { useIntersection } from "react-use";
 import { fadeIn } from "assets/styles/animations";
 
 const dummyData = {
-  categories: [
-    {
-      id: 1,
-      title: "UI Design",
-    },
-    {
-      id: 2,
-      title: "UX Design",
-    },
-    {
-      id: 3,
-      title: "Icon",
-    },
-    {
-      id: 4,
-      title: "Branding",
-    },
-  ],
   items: [
     {
       id: 1,
@@ -97,8 +79,8 @@ const dummyData = {
   ],
 };
 
-const Portfolio = () => {
-  const [currentTab, setActiveTab] = useState(dummyData.categories[0].id);
+const Portfolio = ({ categories, projects }) => {
+  const [currentTab, setActiveTab] = useState(categories[0].id);
   const [animated, setAnimated] = useState(false);
   const portfolioSectionWrapper = useRef(null);
 
@@ -139,6 +121,9 @@ const Portfolio = () => {
     }
   });
 
+
+  console.log(projects);
+
   return (
     <PortfolioComponent ref={portfolioSectionWrapper}>
       <div className="portfolio">
@@ -153,14 +138,14 @@ const Portfolio = () => {
             </div>
             <nav className="portfolio__nav">
               <ul>
-                {dummyData.categories.map((item) => (
+                {categories.map((item) => (
                   <li key={item.id}>
                     <AboutNavItem
                       active={currentTab === item.id && true}
                       className="sub-title"
                       onClick={() => setActiveTab(item.id)}
                     >
-                      {item.title}
+                      {item.name}
                     </AboutNavItem>
                   </li>
                 ))}
@@ -177,7 +162,7 @@ const Portfolio = () => {
               <div key={item.id} className="portfolio__grid-item col-lg-4">
                 <Link to="/">
                   <figure>
-                    <img src={portfolioItem} alt="" />
+                    <img src={portfolioItem} alt=""/>
                     <figcaption>
                       <small className="small">{item.date}</small>
                       <h4>{item.title}</h4>
