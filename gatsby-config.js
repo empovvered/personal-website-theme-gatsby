@@ -18,8 +18,8 @@ module.exports = {
       options: {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
-        url: "http://personalwebsitetheme.local/wp/graphql",
-        refetchInterval: 60,
+        url: "https://personalwebsitetheme.local/wp/graphql",
+        // refetchInterval: 60,
       },
     },
     `gatsby-plugin-react-helmet`,
