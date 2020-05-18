@@ -10,7 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/assets/`,
+        path: path.resolve(`./src`), // this should be your folder containing project files
       },
     },
     {
@@ -18,13 +18,24 @@ module.exports = {
       options: {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
-        url: "https://personalwebsitetheme.local/wp/graphql",
+        url: "http://personalwebsitetheme.local/wp/graphql",
         // refetchInterval: 60,
       },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-image`,
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "WORDPRESS_MediaItem",
+        imagePath: "image.sourceUrl",
+        // OPTIONAL: Name you want to give new image field on the node.
+        // Defaults to 'localImage'.
+        name: "allItemImages",
+      },
+    },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {

@@ -1,23 +1,22 @@
-const createPages = require(`./node/createPages`);
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 exports.createResolvers = ({
-                             actions,
-                             cache,
-                             createNodeId,
-                             createResolvers,
-                             store,
-                             reporter,
-                           }) => {
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
   const { createNode } = actions;
   createResolvers({
     WORDPRESS_MediaItem: {
       imageFile: {
         type: `File`,
-        resolve(source, args, context, info) {
+        resolve(source) {
           return createRemoteFileNode({
-            url: source.mediaItemUrl,
+            url: source.sourceUrl,
             store,
             cache,
             createNode,
@@ -29,6 +28,8 @@ exports.createResolvers = ({
     },
   });
 };
+
+const createPages = require(`./node/createPages`);
 
 exports.createPages = async ({ actions, graphql }) => {
   await createPages({ actions, graphql });
