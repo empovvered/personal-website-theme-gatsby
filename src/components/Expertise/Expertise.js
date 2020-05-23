@@ -7,6 +7,7 @@ import ShareIcon from "assets/icons/share.inline.svg";
 import { useIntersection } from "react-use";
 import { isBrowser } from "utils/isBrowser";
 import { fadeIn } from "assets/styles/animations";
+import { graphql, useStaticQuery } from "gatsby";
 
 const dummyData = [
   {
@@ -33,6 +34,33 @@ const dummyData = [
 ];
 
 const Expertise = () => {
+  const {
+    wordpress: {
+      pages: {
+        nodes: [homepageExpertiseSectionData],
+      },
+    },
+  } = useStaticQuery(
+    graphql`
+      query expertiseData {
+        wordpress {
+          pages(where: { id: 7 }) {
+            nodes {
+              homepageExpertiseSectionData {
+                expertiseParagraph
+                expertiseSubtitle
+                expertiseTitle
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  const expertiseData =
+    homepageExpertiseSectionData.homepageExpertiseSectionData;
+
   const [animated, setAnimated] = useState(false);
   const expertiseSectionWrapper = useRef(null);
 
@@ -65,12 +93,9 @@ const Expertise = () => {
     <ExpertiseComponent ref={expertiseSectionWrapper}>
       <div className="container expertise">
         <div className="expertise__headings">
-          <span className="sub-title">Skills</span>
-          <h1 className="d3">Expertise</h1>
-          <p>
-            Freelance UI/UX Designer, also passionate in making beautiful
-            illustrations and icons
-          </p>
+          <span className="sub-title">{expertiseData.expertiseSubtitle}</span>
+          <h1 className="d3">{expertiseData.expertiseTitle}</h1>
+          <p>{expertiseData.expertiseParagraph}</p>
         </div>
         <div className="row expertise__content">
           {dummyData.map((item) => (
