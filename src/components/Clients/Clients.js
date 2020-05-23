@@ -11,13 +11,42 @@ import businessInsiderLogo from "assets/images/business-insider-logo.png";
 import envatoLogo from "assets/images/envato-logo.png";
 import midWeekLogo from "assets/images/midweek-logo.png";
 import wiredLogo from "assets/images/wired-logo.png";
-import clientPortrait from "assets/images/client-portrait.png";
 import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";
 import { useIntersection } from "react-use";
 import ClientsShape from "assets/images/clients-shpe.inline.svg";
+import { graphql, useStaticQuery } from "gatsby";
+import { useQueryClients } from "hooks/useQueryClients";
 
 const Clients = () => {
+  const {
+    wordpress: {
+      pages: {
+        nodes: [homepageClientsSectionData],
+      },
+    },
+  } = useStaticQuery(
+    graphql`
+      query clientsData {
+        wordpress {
+          pages(where: { id: 7 }) {
+            nodes {
+              id
+              homepageClientsSectionData {
+                clientsSubtitle
+                clientsTitle
+                clientsParagraph
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  const clientsData = homepageClientsSectionData.homepageClientsSectionData;
+  const allClients = useQueryClients();
+
   const [animated, setAnimated] = useState(false);
   const clientsSectionWrapper = useRef(null);
   const clientsShapeWrapper = useRef(null);
@@ -95,12 +124,9 @@ const Clients = () => {
       </ClientsShapeWrapper>
       <div className="container clients">
         <div className="clients__headings">
-          <span className="sub-title">Clients</span>
-          <h1 className="d3">Some notable clients</h1>
-          <p>
-            Freelance UI/UX Designer, also passionate in making beautiful
-            illustrations and icons
-          </p>
+          <span className="sub-title">{clientsData.clientsSubtitle}</span>
+          <h1 className="d3">{clientsData.clientsTitle}</h1>
+          <p>{clientsData.clientsParagraph}</p>
         </div>
         <div className="clients__logos">
           <img src={newscomauLogo} alt="" />
@@ -110,55 +136,24 @@ const Clients = () => {
           <img src={wiredLogo} alt="" />
         </div>
         <Slider {...carouselSettings} className="clients__slider">
-          <div>
-            <div className="clients__slider-item">
-              <img src={clientPortrait} alt="" />
-              <blockquote>
-                <p>
-                  “Lean startup metrics venture innovator assets angel investor
-                  learning curve incubator branding advisor termsheet. IPad
-                  ecosystem conversion android advisor. Incuba business model
-                  canvas strategy”
-                </p>
-                <h4>Silvia Natalia</h4>
-                <span className="sub-title">Owner Tanahcon</span>
-              </blockquote>
+          {allClients.map((item) => (
+            <div key={item.id}>
+              <div className="clients__slider-item">
+                <img
+                  src={item.featuredImage.sourceUrl}
+                  alt={item.featuredImage.altText}
+                />
+                <blockquote>
+                  {/* eslint-disable-next-line react/no-danger */}
+                  <div dangerouslySetInnerHTML={{ __html: item.excerpt }} />
+                  <h4>{item.title}</h4>
+                  <span className="sub-title">
+                    {item.clientsAdditionalData.companyName}
+                  </span>
+                </blockquote>
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="clients__slider-item">
-              <img src={clientPortrait} alt="" />
-              <blockquote>
-                <p>
-                  “Lean startup metrics venture innovator assets angel investor
-                  learning curve incubator branding advisor termsheet. IPad
-                  ecosystem conversion android advisor. Incubator vesting period
-                  metrics crowdfunding backing interaction design business model
-                  canvas strategy” IPad ecosystem conversion android advisor.
-                  Incubator vesting period metrics crowdfunding backing
-                  interaction design business model canvas strategy”
-                </p>
-                <h4>Silvia Natalia</h4>
-                <span className="sub-title">Owner Tanahcon</span>
-              </blockquote>
-            </div>
-          </div>
-          <div>
-            <div className="clients__slider-item">
-              <img src={clientPortrait} alt="" />
-              <blockquote>
-                <p>
-                  “Lean startup metrics venture innovator assets angel investor
-                  learning curve incubator branding advisor termsheet. IPad
-                  ecosystem conversion android advisor. Incubator vesting period
-                  metrics crowdfunding backing interaction design business model
-                  canvas strategy”
-                </p>
-                <h4>Silvia Natalia</h4>
-                <span className="sub-title">Owner Tanahcon</span>
-              </blockquote>
-            </div>
-          </div>
+          ))}
         </Slider>
       </div>
     </ClientsComponent>
