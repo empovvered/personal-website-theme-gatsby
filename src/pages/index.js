@@ -9,7 +9,6 @@ import Contact from "components/Contact/Contact";
 import { useQueryProjectsCategories } from "hooks/useQueryProjectsCategories";
 import { useQueryProjects } from "hooks/useQueryProjects";
 
-
 const IndexPage = () => {
   const projectsCategories = useQueryProjectsCategories();
   const projects = useQueryProjects();
@@ -17,12 +16,16 @@ const IndexPage = () => {
   return (
     <>
       <MainLayout>
-        <Introduction/>
-        <About/>
-        <Expertise/>
-        <Portfolio categories={projectsCategories} projects={projects} />
-        <Clients/>
-        <Contact/>
+        <Introduction />
+        <About />
+        <Expertise />
+        <Portfolio
+          categories={projectsCategories}
+          projects={projects}
+          viewAll
+        />
+        <Clients />
+        <Contact />
       </MainLayout>
     </>
   );

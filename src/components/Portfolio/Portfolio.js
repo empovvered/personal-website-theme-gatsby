@@ -12,7 +12,7 @@ import portfolioItem from "assets/images/portfolio-item.png";
 import { useIntersection } from "react-use";
 import { fadeIn } from "assets/styles/animations";
 
-const Portfolio = ({ categories, projects }) => {
+const Portfolio = ({ categories, projects, viewAll }) => {
   const [currentTab, setActiveTab] = useState(categories[0].id);
   const [animated, setAnimated] = useState(false);
   const portfolioSectionWrapper = useRef(null);
@@ -79,9 +79,11 @@ const Portfolio = ({ categories, projects }) => {
                   </li>
                 ))}
               </ul>
-              <Link to="/">
-                <StyledButtonComponent>View All</StyledButtonComponent>
-              </Link>
+              {viewAll && (
+                <Link to="/portfolio">
+                  <StyledButtonComponent>View All</StyledButtonComponent>
+                </Link>
+              )}
             </nav>
           </div>
         </div>
@@ -123,6 +125,7 @@ Portfolio.propTypes = {
       }),
     })
   ).isRequired,
+  viewAll: PropTypes.bool.isRequired,
 };
 
 export default Portfolio;

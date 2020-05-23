@@ -3,9 +3,9 @@ import { useStaticQuery, graphql } from "gatsby";
 export const useQueryProjects = () => {
   const { wordpress } = useStaticQuery(
     graphql`
-      query MyQuery {
+      query allProjects {
         wordpress {
-          projects {
+          projects(first: 100) {
             nodes {
               featuredImage {
                 sourceUrl
