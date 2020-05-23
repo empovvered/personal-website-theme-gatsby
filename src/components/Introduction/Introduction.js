@@ -8,6 +8,7 @@ import Button from "components/Button/Button";
 import introPortrait from "assets/images/intro-portrait.png";
 import IntroShape from "assets/images/intro-shape.inline.svg";
 import gsap from "gsap";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 const Introduction = () => {
   const introSectionWrapper = useRef(null);
@@ -33,24 +34,56 @@ const Introduction = () => {
       [ornamentWhite, ornamentBlack, oval, rectangle2, rectangle1],
       { scaleY: 0 },
       { duration: 1, scaleY: 1 },
-      "-=0.75",
+      "-=0.75"
     );
     tl.to(introSection, { y: 0, autoAlpha: 1, duration: 1 }, "-=0.5");
   });
 
+  const {
+    wordpress: {
+      pages: {
+        nodes: [homepageIntroSectionData],
+      },
+    },
+  } = useStaticQuery(
+    graphql`
+      query introData {
+        wordpress {
+          pages(where: { id: 7 }) {
+            nodes {
+              homepageIntroSectionData {
+                title
+                subtitle
+                paragraph
+                image {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  const introData = homepageIntroSectionData.homepageIntroSectionData;
 
   return (
     <IntroductionComponent>
       <IntroShapeWrapper ref={shapeWrapper}>
-        <IntroShape/>
+        <IntroShape />
       </IntroShapeWrapper>
       <div className="container">
         <div className="row intro" ref={introSectionWrapper}>
           <div className="col-lg-6 intro__text">
-            <span className="sub-title">Hello</span>
-            <h1 className="d3">I&apos;m John</h1>
-            <p>Frontend developer</p>
-            <Button type="button">Hire me</Button>
+            <span className="sub-title">{introData.subtitle}</span>
+            <h1 className="d3">{introData.title}</h1>
+            <p>{introData.paragraph}</p>
+            <Button type="button">
+              <Link style={{ color: "white" }} to="/contact">
+                Hire Me
+              </Link>
+            </Button>
           </div>
           <div className="col-lg-6 intro__img">
             <img
