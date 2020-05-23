@@ -11,6 +11,7 @@ import aboutPortrait from "assets/images/about-portrait.png";
 import AboutShape from "assets/images/about-shape.inline.svg";
 import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";
+import { graphql, useStaticQuery } from "gatsby";
 
 const dummyData = [
   {
@@ -34,6 +35,34 @@ const dummyData = [
 ];
 
 const Introduction = () => {
+  const {
+    wordpress: {
+      pages: {
+        nodes: [homepageAboutSectionData],
+      },
+    },
+  } = useStaticQuery(
+    graphql`
+        query aboutData {
+            wordpress {
+                pages(where: {id: 7}) {
+                    nodes {
+                        homepageAboutSectionData {
+                            aboutTitle
+                            aboutSubtitle
+                            aboutImage {
+                                sourceUrl
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `
+  );
+
+  const aboutData = homepageAboutSectionData.homepageAboutSectionData;
+
   const [currentTab, setCurrentTab] = useState(dummyData[0].id);
   const [animated, setAnimated] = useState(false);
   const aboutSectionWrapper = useRef(null);
@@ -59,13 +88,13 @@ const Introduction = () => {
     tl.fromTo(
       rectangle,
       { rotation: 45, transformOrigin: "50% 50%" },
-      { rotation: -45, duration: 1.5 }
+      { rotation: -45, duration: 1.5 },
     );
     tl.fromTo(
       [ornamentWhite, oval, rectangle1, rectangle2, rectangle3],
       { scaleY: 0 },
       { duration: 1, scaleY: 1 },
-      "-=0.75"
+      "-=0.75",
     );
 
     tl.to(aboutSection, { y: 0, autoAlpha: 1, duration: 1 }, "-=1.5");
@@ -99,16 +128,16 @@ const Introduction = () => {
   return (
     <AboutComponent ref={aboutSectionWrapper}>
       <AboutShapeWrapper ref={aboutShapeWrapper}>
-        <AboutShape />
+        <AboutShape/>
       </AboutShapeWrapper>
       <div className="container">
         <div className="row about">
           <div className="col-lg-6 about__image-box">
-            <img className="about__image-element" src={aboutPortrait} alt="" />
+            <img className="about__image-element" src={aboutData.aboutImage.sourceUrl} alt=""/>
           </div>
           <div className="col-lg-6 about__info">
-            <small className="sub-title">A bit</small>
-            <h1 className="d3">About Me</h1>
+            <small className="sub-title">{aboutData.aboutSubtitle}</small>
+            <h1 className="d3">{aboutData.aboutTitle}</h1>
             <nav className="about__nav">
               <ul>
                 {dummyData.map((item) => (
@@ -126,7 +155,7 @@ const Introduction = () => {
             </nav>
             <div className="about__desc">
               <p>{activeTab.description}</p>
-              <StyledButtonComponent>Download CV</StyledButtonComponent>
+              <StyledButtonComponent><a href="http://example.com/files/myfile.pdf" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>Download Cv</a></StyledButtonComponent>
             </div>
           </div>
         </div>

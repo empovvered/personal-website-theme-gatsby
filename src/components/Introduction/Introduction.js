@@ -88,7 +88,7 @@ const Introduction = () => {
           <div className="col-lg-6 intro__img">
             <img
               className="intro__element"
-              src={introPortrait}
+              src={introData.image.sourceUrl}
               alt="intro-placeholder"
             />
           </div>
