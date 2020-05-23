@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
+import PropTypes, { shape } from "prop-types";
 import {
   PortfolioComponent,
   AboutNavItem,
@@ -11,79 +12,10 @@ import portfolioItem from "assets/images/portfolio-item.png";
 import { useIntersection } from "react-use";
 import { fadeIn } from "assets/styles/animations";
 
-const dummyData = {
-  items: [
-    {
-      id: 1,
-      category: "UI Design",
-      categoryId: 1,
-      title: "sdfsdgbn,,bvmlmb,m",
-      date: "20/02/2020",
-      description:
-        "Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature",
-    },
-    {
-      id: 2,
-      category: "UX Design",
-      categoryId: 2,
-      title: "fdsdmfpsdfoskadasp[d[pasd",
-      date: "12/01/2020",
-      description:
-        "Pacific housing unique experousing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature",
-    },
-    {
-      id: 3,
-      category: "Icon",
-      categoryId: 3,
-      title: "idmwiodmaoimdasomasdpo",
-      date: "21/03/2020",
-      description:
-        "Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature Pacific housto do motel nature Pacific housing unique experiences things to do motel nature ",
-    },
-    {
-      id: 5,
-      category: "Branding",
-      categoryId: 4,
-      title: "dggsadoa",
-      date: "15/02/2019",
-      description:
-        "Pacific housing unique experiences things to do motefsfsdfdsfsdfsdfsdddddddddddddddddddddddddddddddddddddddl nature Pacific housing unique experiences things to do motel nature Pacific housto do motel nature Pacific housing unique experiences things to do motel nature ",
-    },
-    {
-      id: 6,
-      category: "Branding",
-      categoryId: 4,
-      title: "dggsadoa",
-      date: "15/02/2019",
-      description:
-        "Pacific housing unique experiences things to do motefsfsdfdsfsdfsdfsdddddddddddddddddddddddddddddddddddddddl nature Pacific housing unique experiences things to do motel nature Pacific housto do motel nature Pacific housing unique experiences things to do motel nature ",
-    },
-    {
-      id: 7,
-      category: "Branding",
-      categoryId: 4,
-      title: "dggsadoa",
-      date: "15/02/2019",
-      description:
-        "Pacific housing unique experiences things to do motefsfsdfdsfsdfsdfsdddddddddddddddddddddddddddddddddddddddl nature Pacific housing unique experiences things to do motel nature Pacific housto do motel nature Pacific housing unique experiences things to do motel nature ",
-    },
-    {
-      id: 8,
-      category: "Branding",
-      categoryId: 4,
-      title: "dggsadoa",
-      date: "15/02/2019",
-      description:
-        "Pacific housing unique experiences things to do motefsfsdfdsfsdfsdfsdddddddddddddddddddddddddddddddddddddddl nature Pacific housing unique experiences things to do motel nature Pacific housto do motel nature Pacific housing unique experiences things to do motel nature ",
-    },
-  ],
-};
-
 const Portfolio = ({ categories, projects }) => {
   const [currentTab, setActiveTab] = useState(categories[0].id);
   const [animated, setAnimated] = useState(false);
   const portfolioSectionWrapper = useRef(null);
-
   let itemsLimit = 0;
 
   if (isBrowser() && window.innerWidth <= 768) {
@@ -92,8 +24,8 @@ const Portfolio = ({ categories, projects }) => {
     itemsLimit = 9;
   }
 
-  const portfolioItems = dummyData.items
-    .filter((item) => item.categoryId === currentTab)
+  const portfolioItems = projects
+    .filter((item) => item.categories.nodes[0].id === currentTab)
     .slice(0, itemsLimit);
 
   let sectionRatio = 0;
@@ -120,9 +52,6 @@ const Portfolio = ({ categories, projects }) => {
       setAnimated(true);
     }
   });
-
-
-  console.log(projects);
 
   return (
     <PortfolioComponent ref={portfolioSectionWrapper}>
@@ -162,7 +91,7 @@ const Portfolio = ({ categories, projects }) => {
               <div key={item.id} className="portfolio__grid-item col-lg-4">
                 <Link to="/">
                   <figure>
-                    <img src={portfolioItem} alt=""/>
+                    <img src={portfolioItem} alt="" />
                     <figcaption>
                       <small className="small">{item.date}</small>
                       <h4>{item.title}</h4>
@@ -176,6 +105,24 @@ const Portfolio = ({ categories, projects }) => {
       </div>
     </PortfolioComponent>
   );
+};
+
+Portfolio.propTypes = {
+  categories: PropTypes.arrayOf(
+    shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  projects: PropTypes.arrayOf(
+    shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      featuredImage: shape({
+        sourceUrl: PropTypes.string.isRequired,
+      }),
+    })
+  ).isRequired,
 };
 
 export default Portfolio;

@@ -1,8 +1,8 @@
 const size = {
-  xs: `576px`,
-  sm: `768px`,
-  md: `992px`,
-  lg: `1200px`,
+  xs: `575px`,
+  sm: `767px`,
+  md: `991px`,
+  lg: `1199px`,
 };
 
 export const device = {

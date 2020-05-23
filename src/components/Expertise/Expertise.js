@@ -8,6 +8,24 @@ import { useIntersection } from "react-use";
 import { isBrowser } from "utils/isBrowser";
 import { fadeIn } from "assets/styles/animations";
 
+const dummyData = [
+  {
+    id: 1,
+    title: "UI/UX Design",
+    content: "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+  },
+  {
+    id: 2,
+    title: "Local SEO",
+    content: "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+  },
+  {
+    id: 3,
+    title: "Social Media Marketing",
+    content: "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+  },
+];
+
 const Expertise = () => {
   const [animated, setAnimated] = useState(false);
   const expertiseSectionWrapper = useRef(null);
@@ -49,39 +67,18 @@ const Expertise = () => {
           </p>
         </div>
         <div className="row expertise__content">
-          <div className="col-lg-4">
-            <div className="expertise__box">
-              <DesktopIcon />
-              <h4>UI/UX Design</h4>
-              <p className="sub-title">
-                Launch party pitch technology user experience innovator buzz
-                stealth MVP business model.
-              </p>
-              <a href="/">Show more</a>
+          {dummyData.map(item => (
+            <div className="col-lg-4" key={item.id}>
+              <div className="expertise__box">
+                <DesktopIcon/>
+                <h4>{item.title}</h4>
+                <p className="sub-title">
+                  {item.content}
+                </p>
+                <a href="/">Show more</a>
+              </div>
             </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="expertise__box">
-              <TargetIcon />
-              <h4>Local SEO</h4>
-              <p className="sub-title">
-                Launch party pitch technology user experience innovator buzz
-                stealth MVP business model.
-              </p>
-              <a href="/">Show more</a>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="expertise__box">
-              <ShareIcon />
-              <h4>Social Media Marketing</h4>
-              <p className="sub-title">
-                Launch party pitch technology user experience innovator buzz
-                stealth MVP business model.
-              </p>
-              <a href="/">Show more</a>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </ExpertiseComponent>
