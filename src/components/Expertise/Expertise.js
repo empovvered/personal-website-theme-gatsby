@@ -12,17 +12,23 @@ const dummyData = [
   {
     id: 1,
     title: "UI/UX Design",
-    content: "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+    content:
+      "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+    icon: DesktopIcon,
   },
   {
     id: 2,
     title: "Local SEO",
-    content: "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+    content:
+      "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+    icon: TargetIcon,
   },
   {
     id: 3,
     title: "Social Media Marketing",
-    content: "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+    content:
+      "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
+    icon: ShareIcon,
   },
 ];
 
@@ -67,14 +73,12 @@ const Expertise = () => {
           </p>
         </div>
         <div className="row expertise__content">
-          {dummyData.map(item => (
+          {dummyData.map((item) => (
             <div className="col-lg-4" key={item.id}>
               <div className="expertise__box">
-                <DesktopIcon/>
+                <DesktopIcon />
                 <h4>{item.title}</h4>
-                <p className="sub-title">
-                  {item.content}
-                </p>
+                <p className="sub-title">{item.content}</p>
                 <a href="/">Show more</a>
               </div>
             </div>

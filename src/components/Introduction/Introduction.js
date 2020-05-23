@@ -5,7 +5,6 @@ import {
 } from "components/Introduction/IntroductionStyles";
 
 import Button from "components/Button/Button";
-import introPortrait from "assets/images/intro-portrait.png";
 import IntroShape from "assets/images/intro-shape.inline.svg";
 import gsap from "gsap";
 import { graphql, Link, useStaticQuery } from "gatsby";
