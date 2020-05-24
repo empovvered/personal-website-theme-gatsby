@@ -6,14 +6,9 @@ import styled, { ThemeProvider } from "styled-components";
 import SEO from "components/Seo/SEO";
 import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
-import { device } from "assets/styles/mediaQueries";
 
 const Primary = styled.div`
   position: relative;
-  padding-top: 236px;
-  @media ${device.md} {
-    padding-top: 100px;
-  }
 `;
 
 const MainLayout = ({ children }) => (

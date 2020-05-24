@@ -1,25 +1,25 @@
 import React from "react";
 import MainLayout from "layouts/MainLayout";
-import Contact from "components/Contact/Contact";
+import Clients from "components/Clients/Clients";
 import styled from "styled-components";
 import { device } from "assets/styles/mediaQueries";
 
-const ContactPageWrapper = styled.div`
-  padding-top: 100px;
+const ClientsPageWrapper = styled.div`
+  padding-top: 50px;
   @media ${device.md} {
-    padding-top: 75px;
+    padding-top: 25px;
   }
 `;
 
-const IndexPage = () => {
+const ClientsPage = () => {
   return (
     <>
-      <ContactPageWrapper>
+      <ClientsPageWrapper>
         <MainLayout>
-          <Contact />
+          <Clients />
         </MainLayout>
-      </ContactPageWrapper>
+      </ClientsPageWrapper>
     </>
   );
 };
-export default IndexPage;
+export default ClientsPage;

@@ -1,28 +1,27 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-export const useQueryProjects = () => {
+export const useQueryClients = () => {
   const { wordpress } = useStaticQuery(
     graphql`
-      query allProjects {
+      query allClients {
         wordpress {
-          projects(first: 100) {
+          clients(first: 100) {
             nodes {
+              clientsAdditionalData {
+                companyName
+              }
               featuredImage {
                 sourceUrl
                 altText
               }
-              id
               title
-              categories(where: { parent: 3 }) {
-                nodes {
-                  id
-                }
-              }
+              excerpt
+              id
             }
           }
         }
       }
     `
   );
-  return wordpress.projects.nodes;
+  return wordpress.clients.nodes;
 };

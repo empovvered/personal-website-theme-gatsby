@@ -6,8 +6,6 @@ import {
   AboutNavItem,
   AboutComponent,
 } from "components/About/AboutStyles";
-
-import aboutPortrait from "assets/images/about-portrait.png";
 import AboutShape from "assets/images/about-shape.inline.svg";
 import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";
@@ -43,21 +41,22 @@ const Introduction = () => {
     },
   } = useStaticQuery(
     graphql`
-        query aboutData {
-            wordpress {
-                pages(where: {id: 7}) {
-                    nodes {
-                        homepageAboutSectionData {
-                            aboutTitle
-                            aboutSubtitle
-                            aboutImage {
-                                sourceUrl
-                            }
-                        }
-                    }
+      query aboutData {
+        wordpress {
+          pages(where: { id: 7 }) {
+            nodes {
+              homepageAboutSectionData {
+                aboutTitle
+                aboutSubtitle
+                aboutImage {
+                  sourceUrl
+                  altText
                 }
+              }
             }
+          }
         }
+      }
     `
   );
 
@@ -88,13 +87,13 @@ const Introduction = () => {
     tl.fromTo(
       rectangle,
       { rotation: 45, transformOrigin: "50% 50%" },
-      { rotation: -45, duration: 1.5 },
+      { rotation: -45, duration: 1.5 }
     );
     tl.fromTo(
       [ornamentWhite, oval, rectangle1, rectangle2, rectangle3],
       { scaleY: 0 },
       { duration: 1, scaleY: 1 },
-      "-=0.75",
+      "-=0.75"
     );
 
     tl.to(aboutSection, { y: 0, autoAlpha: 1, duration: 1 }, "-=1.5");
@@ -128,12 +127,16 @@ const Introduction = () => {
   return (
     <AboutComponent ref={aboutSectionWrapper}>
       <AboutShapeWrapper ref={aboutShapeWrapper}>
-        <AboutShape/>
+        <AboutShape />
       </AboutShapeWrapper>
       <div className="container">
         <div className="row about">
           <div className="col-lg-6 about__image-box">
-            <img className="about__image-element" src={aboutData.aboutImage.sourceUrl} alt=""/>
+            <img
+              className="about__image-element"
+              src={aboutData.aboutImage.sourceUrl}
+              alt={aboutData.aboutImage.altText}
+            />
           </div>
           <div className="col-lg-6 about__info">
             <small className="sub-title">{aboutData.aboutSubtitle}</small>
@@ -155,7 +158,16 @@ const Introduction = () => {
             </nav>
             <div className="about__desc">
               <p>{activeTab.description}</p>
-              <StyledButtonComponent><a href="http://example.com/files/myfile.pdf" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>Download Cv</a></StyledButtonComponent>
+              <StyledButtonComponent>
+                <a
+                  href="http://example.com/files/myfile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "white" }}
+                >
+                  Download Cv
+                </a>
+              </StyledButtonComponent>
             </div>
           </div>
         </div>
