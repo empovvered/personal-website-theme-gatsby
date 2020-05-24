@@ -129,11 +129,11 @@ const Clients = () => {
           <p>{clientsData.clientsParagraph}</p>
         </div>
         <div className="clients__logos">
-          <img src={newscomauLogo} alt="" />
-          <img src={businessInsiderLogo} alt="" />
-          <img src={envatoLogo} alt="" />
-          <img src={midWeekLogo} alt="" />
-          <img src={wiredLogo} alt="" />
+          <img src={newscomauLogo} alt="newscomau-logo" />
+          <img src={businessInsiderLogo} alt="business-insider-logo" />
+          <img src={envatoLogo} alt="envato-logo" />
+          <img src={midWeekLogo} alt="midweek-logo" />
+          <img src={wiredLogo} alt="wired-logo" />
         </div>
         <Slider {...carouselSettings} className="clients__slider">
           {allClients.map((item) => (

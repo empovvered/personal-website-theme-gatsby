@@ -9,6 +9,7 @@ export const useQueryProjects = () => {
             nodes {
               featuredImage {
                 sourceUrl
+                altText
               }
               id
               title

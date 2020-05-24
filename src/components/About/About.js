@@ -50,6 +50,7 @@ const Introduction = () => {
                 aboutSubtitle
                 aboutImage {
                   sourceUrl
+                  altText
                 }
               }
             }
@@ -134,7 +135,7 @@ const Introduction = () => {
             <img
               className="about__image-element"
               src={aboutData.aboutImage.sourceUrl}
-              alt=""
+              alt={aboutData.aboutImage.altText}
             />
           </div>
           <div className="col-lg-6 about__info">

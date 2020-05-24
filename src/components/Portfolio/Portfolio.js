@@ -7,8 +7,6 @@ import {
   StyledButtonComponent,
 } from "components/Portfolio/PortfolioStyles";
 import { isBrowser } from "utils/isBrowser";
-
-import portfolioItem from "assets/images/portfolio-item.png";
 import { useIntersection } from "react-use";
 import { fadeIn } from "assets/styles/animations";
 
@@ -116,7 +114,10 @@ const Portfolio = ({ categories, projects, viewAll }) => {
               <div key={item.id} className="portfolio__grid-item col-lg-4">
                 <Link to="/">
                   <figure>
-                    <img src={portfolioItem} alt="" />
+                    <img
+                      src={item.featuredImage.sourceUrl}
+                      alt={item.featuredImage.altText}
+                    />
                     <figcaption>
                       <small className="small">{item.date}</small>
                       <h4>{item.title}</h4>
