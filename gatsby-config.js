@@ -12,7 +12,7 @@ module.exports = {
       options: {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
-        url: "https://bedrock2222.local/wp",
+        url: "https://bedrock2222.local/wp/graphql",
         // refetchInterval: 60,
       },
     },
