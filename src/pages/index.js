@@ -8,6 +8,15 @@ import Clients from "components/Clients/Clients";
 import Contact from "components/Contact/Contact";
 import { useQueryProjectsCategories } from "hooks/useQueryProjectsCategories";
 import { useQueryProjects } from "hooks/useQueryProjects";
+import styled from "styled-components";
+import { device } from "assets/styles/mediaQueries";
+
+const HomePageWrapper = styled.div`
+  padding-top: 236px;
+  @media ${device.md} {
+    padding-top: 100px;
+  }
+`;
 
 const IndexPage = () => {
   const projectsCategories = useQueryProjectsCategories();
@@ -16,16 +25,18 @@ const IndexPage = () => {
   return (
     <>
       <MainLayout>
-        <Introduction />
-        <About />
-        <Expertise />
-        <Portfolio
-          categories={projectsCategories}
-          projects={projects}
-          viewAll
-        />
-        <Clients />
-        <Contact />
+        <HomePageWrapper>
+          <Introduction />
+          <About />
+          <Expertise />
+          <Portfolio
+            categories={projectsCategories}
+            projects={projects}
+            viewAll
+          />
+          <Clients />
+          <Contact />
+        </HomePageWrapper>
       </MainLayout>
     </>
   );

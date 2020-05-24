@@ -149,7 +149,11 @@ Portfolio.propTypes = {
       }),
     })
   ).isRequired,
-  viewAll: PropTypes.bool.isRequired,
+  viewAll: PropTypes.bool,
+};
+
+Portfolio.defaultProps = {
+  viewAll: false,
 };
 
 export default Portfolio;
