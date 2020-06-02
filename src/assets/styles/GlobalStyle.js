@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import "bootstrap/dist/css/bootstrap-grid.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { theme } from "assets/styles/theme";
 import { device } from "./mediaQueries";
 
 const GlobalStyle = createGlobalStyle`
@@ -20,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.5rem;
         margin: 0;
         padding: 0;
-        font-family: "Livvic", sans-serif;
+        font-family: ${theme.fontFamily.body};
         line-height: 1.33;
     }
     
@@ -99,7 +100,7 @@ const GlobalStyle = createGlobalStyle`
   
    h1, h2, h3, h4, h5, h6 {
         margin: 0 0 0.5em;
-        line-height: 1.15;
+        line-height: ${theme.lineHeights.heading};
     }
       
     h1 {
@@ -108,6 +109,7 @@ const GlobalStyle = createGlobalStyle`
             font-size: 3.8rem;
         }
     }
+    
     h2 {
         font-size: 3.4rem;
         @media ${device.md} {
@@ -127,15 +129,18 @@ const GlobalStyle = createGlobalStyle`
             font-size: 2rem;
         }
     }
+    
     h5 {
         font-size: 1.8rem;
     }
+    
     h6 {
         font-size: 1.6rem;
     }
+    
     p {
         margin: 0 0 1.15rem;
-        line-height: 25px;
+        line-height: ${theme.lineHeights.text};
         letter-spacing: 0;
     }
     
