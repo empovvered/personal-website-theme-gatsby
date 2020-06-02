@@ -20,8 +20,8 @@ const HeaderComponent = styled.header`
     &__logo {
       font-size: 3.4rem;
       text-decoration: none;
-      color: ${({ theme }) => theme.textWhite};
-      background-color: ${({ theme }) => theme.primary};
+      color: ${({ theme }) => theme.colors.textWhite};
+      background-color: ${({ theme }) => theme.colors.primary};
       width: 55px;
       height: 55px;
       display: flex;

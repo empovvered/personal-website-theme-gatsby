@@ -17,7 +17,7 @@ export const ClientsComponent = styled.section`
       }
       p {
         max-width: 330px;
-        color: ${({ theme }) => theme.textGray};
+        color: ${({ theme }) => theme.colors.textGray};
       }
       @media ${device.sm} {
         margin-bottom: 45px;
@@ -110,7 +110,7 @@ export const ClientsComponent = styled.section`
           &.slick-active {
             button {
               ::before {
-                background-color: ${({ theme }) => theme.primary};
+                background-color: ${({ theme }) => theme.colors.primary};
               }
             }
           }

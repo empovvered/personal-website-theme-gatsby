@@ -17,7 +17,7 @@ const ExpertiseComponent = styled.section`
       }
       p {
         max-width: 330px;
-        color: ${({ theme }) => theme.textGray};
+        color: ${({ theme }) => theme.colors.textGray};
       }
       @media ${device.sm} {
         margin-bottom: 45px;
@@ -59,7 +59,7 @@ const ExpertiseComponent = styled.section`
       p {
         max-width: 75%;
         text-align: center;
-        color: ${({ theme }) => theme.textGray};
+        color: ${({ theme }) => theme.colors.textGray};
         @media ${device.xs} {
           max-width: unset;
         }

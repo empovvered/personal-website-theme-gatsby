@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: ${theme.fontFamily.body};
-        line-height: 1.33;
+        line-height: ${theme.lineHeights.text};
     }
     
     @media (min-width: 1200px) {
@@ -140,7 +140,6 @@ const GlobalStyle = createGlobalStyle`
     
     p {
         margin: 0 0 1.15rem;
-        line-height: ${theme.lineHeights.text};
         letter-spacing: 0;
     }
     

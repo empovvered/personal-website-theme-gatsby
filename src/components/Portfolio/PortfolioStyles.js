@@ -6,7 +6,7 @@ export const PortfolioComponent = styled.section`
   opacity: 0;
   .portfolio {
     &__headings {
-      background-color: ${({ theme }) => theme.primary};
+      background-color: ${({ theme }) => theme.colors.primary};
       padding: 136px 0 108px;
       @media ${device.sm} {
         padding: 75px 0 50px;
@@ -34,7 +34,7 @@ export const PortfolioComponent = styled.section`
       }
     }
     &__title {
-      color: ${({ theme }) => theme.textWhite};
+      color: ${({ theme }) => theme.colors.textWhite};
       p {
         max-width: 330px;
       }
@@ -46,11 +46,11 @@ export const PortfolioComponent = styled.section`
         position: relative;
         figcaption {
           position: absolute;
-          color: ${({ theme }) => theme.textWhite};
+          color: ${({ theme }) => theme.colors.textWhite};
           width: 100%;
           height: 33%;
           bottom: 0;
-          background-color: ${({ theme }) => theme.primary};
+          background-color: ${({ theme }) => theme.colors.primary};
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -87,10 +87,10 @@ export const AboutNavItem = styled.button`
   background-color: transparent;
   border: 0;
   display: block;
-  color: ${({ theme }) => theme.textWhite};
+  color: ${({ theme }) => theme.colors.textWhite};
   :after {
     content: "";
-    background-color: ${({ theme }) => theme.textWhite};
+    background-color: ${({ theme }) => theme.colors.textWhite};
     position: absolute;
     bottom: -3px;
     left: 0;
@@ -112,6 +112,6 @@ export const AboutNavItem = styled.button`
 `;
 
 export const StyledButtonComponent = styled(ButtonComponent)`
-  background-color: ${({ theme }) => theme.textWhite};
-  color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.colors.textWhite};
+  color: ${({ theme }) => theme.colors.primary};
 `;
