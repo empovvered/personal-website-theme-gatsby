@@ -11,27 +11,6 @@ import gsap from "gsap";
 import { isBrowser } from "utils/isBrowser";
 import { graphql, useStaticQuery } from "gatsby";
 
-const dummyData = [
-  {
-    id: 1,
-    title: "life",
-    description:
-      "Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature",
-  },
-  {
-    id: 2,
-    title: "education",
-    description:
-      "Pacific housing unique experousing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature",
-  },
-  {
-    id: 3,
-    title: "experience",
-    description:
-      "Pacific housing unique experiences things to do motel nature Pacific housing unique experiences things to do motel nature Pacific housto do motel nature Pacific housing unique experiences things to do motel nature ",
-  },
-];
-
 const Introduction = () => {
   const {
     wordpress: {
@@ -52,6 +31,10 @@ const Introduction = () => {
                   sourceUrl
                   altText
                 }
+                aboutContent {
+                  title
+                  description
+                }
               }
             }
           }
@@ -62,12 +45,14 @@ const Introduction = () => {
 
   const aboutData = homepageAboutSectionData.homepageAboutSectionData;
 
-  const [currentTab, setCurrentTab] = useState(dummyData[0].id);
+  const [currentTab, setCurrentTab] = useState(aboutData.aboutContent[0].title);
   const [animated, setAnimated] = useState(false);
   const aboutSectionWrapper = useRef(null);
   const aboutShapeWrapper = useRef(null);
 
-  const [activeTab] = dummyData.filter((item) => item.id === currentTab);
+  const [activeTab] = aboutData.aboutContent.filter(
+    (item) => item.title === currentTab
+  );
 
   const animateAbout = () => {
     const [elements] = aboutShapeWrapper.current.children;
@@ -143,11 +128,12 @@ const Introduction = () => {
             <h1 className="d3">{aboutData.aboutTitle}</h1>
             <nav className="about__nav">
               <ul>
-                {dummyData.map((item) => (
-                  <li key={item.id}>
+                {aboutData.aboutContent.map((item, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <li key={index}>
                     <AboutNavItem
-                      active={currentTab === item.id && true}
-                      onClick={() => setCurrentTab(item.id)}
+                      active={currentTab === item.title && true}
+                      onClick={() => setCurrentTab(item.title)}
                       className="sub-title"
                     >
                       {item.title}
