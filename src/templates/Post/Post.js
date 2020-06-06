@@ -6,7 +6,7 @@ const Page = () => (
     <div className="container">
       <div className="row">
         <div className="col-8 offset-4">
-          <p>lorem 1</p>
+          <p>Lorem1</p>
         </div>
       </div>
     </div>

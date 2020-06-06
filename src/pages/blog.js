@@ -26,8 +26,8 @@ const BlogPage = () => {
   });
 
   return (
-    <BlogPageWrapper ref={blogSectionWrapper}>
-      <MainLayout>
+    <MainLayout>
+      <BlogPageWrapper ref={blogSectionWrapper}>
         <div className="container">
           <h1 className="d3">Blog</h1>
           <div className="row">
@@ -60,8 +60,8 @@ const BlogPage = () => {
             </div>
           </div>
         </div>
-      </MainLayout>
-    </BlogPageWrapper>
+      </BlogPageWrapper>
+    </MainLayout>
   );
 };
 
