@@ -10,7 +10,7 @@ import { isBrowser } from "utils/isBrowser";
 import { useIntersection } from "react-use";
 import { fadeIn } from "assets/styles/animations";
 
-const Portfolio = ({ categories, projects, viewAll }) => {
+const Portfolio = ({ categories, projects, viewAll, limit }) => {
   const {
     wordpress: {
       pages: {
@@ -88,7 +88,7 @@ const Portfolio = ({ categories, projects, viewAll }) => {
             </div>
             <nav className="portfolio__nav">
               <ul>
-                {categories.map((item) => (
+                {categories.slice(0, limit).map((item) => (
                   <li key={item.id}>
                     <AboutNavItem
                       active={currentTab === item.id && true}
@@ -149,11 +149,13 @@ Portfolio.propTypes = {
       }),
     })
   ).isRequired,
+  limit: PropTypes.number,
   viewAll: PropTypes.bool,
 };
 
 Portfolio.defaultProps = {
   viewAll: false,
+  limit: 500,
 };
 
 export default Portfolio;

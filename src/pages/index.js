@@ -32,6 +32,7 @@ const IndexPage = () => {
           <Portfolio
             categories={projectsCategories}
             projects={projects}
+            limit={4}
             viewAll
           />
           <Clients />
