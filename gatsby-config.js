@@ -13,7 +13,7 @@ module.exports = {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
         url: "http://bedrock.local/wp/graphql",
-        // refetchInterval: 60,
+        refetchInterval: 60,
       },
     },
     `gatsby-plugin-react-helmet`,

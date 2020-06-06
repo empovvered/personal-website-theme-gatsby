@@ -2,9 +2,9 @@ const path = require(`path`);
 
 module.exports = async ({ actions, graphql }) => {
   const GET_POSTS = `
-  query GET_POSTS{
+  query GET_POSTS($first:Int) {
     wordpress {
-      posts {
+      posts( first: $first ) {
 				nodes {
 					content
 					title

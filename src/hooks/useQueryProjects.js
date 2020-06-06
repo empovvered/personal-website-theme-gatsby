@@ -18,6 +18,7 @@ export const useQueryProjects = () => {
                   id
                 }
               }
+              uri
             }
           }
         }

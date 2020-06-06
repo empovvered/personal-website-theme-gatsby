@@ -101,7 +101,7 @@ const Portfolio = ({ categories, projects, viewAll, limit }) => {
                 ))}
               </ul>
               {viewAll && (
-                <Link to="/portfolio">
+                <Link to="/portfolio/">
                   <StyledButtonComponent>View All</StyledButtonComponent>
                 </Link>
               )}
@@ -112,7 +112,7 @@ const Portfolio = ({ categories, projects, viewAll, limit }) => {
           <div className="row">
             {portfolioItems.map((item) => (
               <div key={item.id} className="portfolio__grid-item col-lg-4">
-                <Link to="/">
+                <Link to={item.uri}>
                   <figure>
                     <img
                       src={item.featuredImage.sourceUrl}
