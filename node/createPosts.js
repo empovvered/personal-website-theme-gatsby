@@ -9,6 +9,9 @@ module.exports = async ({ actions, graphql }) => {
 					content
 					title
 					uri
+					featuredImage {
+					  sourceUrl
+					  }
 					}
 				}
       }
@@ -28,6 +31,7 @@ module.exports = async ({ actions, graphql }) => {
         context: {
           title: post.title,
           content: post.content,
+          featuredImage: post.featuredImage.sourceUrl,
         },
       });
     });
