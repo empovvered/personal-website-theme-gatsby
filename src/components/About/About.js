@@ -158,16 +158,14 @@ const Introduction = () => {
             </nav>
             <div className="about__desc">
               <p>{activeTab.description}</p>
-              <StyledButtonComponent>
-                <a
-                  href="http://example.com/files/myfile.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "white" }}
-                >
-                  Download Cv
-                </a>
-              </StyledButtonComponent>
+              <a
+                href="http://example.com/files/myfile.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "white" }}
+              >
+                <StyledButtonComponent>Download Cv</StyledButtonComponent>
+              </a>
             </div>
           </div>
         </div>

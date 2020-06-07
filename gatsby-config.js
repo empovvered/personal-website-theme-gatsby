@@ -12,7 +12,7 @@ module.exports = {
       options: {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
-        url: "http://bedrock.local/wp/graphql",
+        url: "https://dawid.agencjaconvertio.pl/graphql",
         // refetchInterval: 60,
       },
     },

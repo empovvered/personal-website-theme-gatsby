@@ -18,10 +18,17 @@ const Page = ({ pageContext }) => (
         <div className="row">
           <div className="col-8 offset-2">
             <h1>{pageContext.title}</h1>
+            {console.log(pageContext)}
             <img
-              src={pageContext.featuredImage.childImageSharp.fluid.src}
-              srcSet={pageContext.featuredImage.childImageSharp.fluid.srcSet}
-              sizes={pageContext.featuredImage.childImageSharp.fluid.sizes}
+              src={
+                pageContext.featuredImage.imageFile.childImageSharp.fluid.src
+              }
+              srcSet={
+                pageContext.featuredImage.imageFile.childImageSharp.fluid.srcSet
+              }
+              sizes={
+                pageContext.featuredImage.imageFile.childImageSharp.fluid.sizes
+              }
               alt={pageContext}
             />
             {/* eslint-disable-next-line react/no-danger */}

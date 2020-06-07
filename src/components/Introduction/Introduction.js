@@ -88,11 +88,9 @@ const Introduction = () => {
             <span className="sub-title">{introData.subtitle}</span>
             <h1 className="d3">{introData.title}</h1>
             <p>{introData.paragraph}</p>
-            <Button type="button">
-              <Link style={{ color: "white" }} to="/contact">
-                Hire Me
-              </Link>
-            </Button>
+            <Link style={{ color: "white" }} to="/contact">
+              <Button type="button">Hire Me</Button>
+            </Link>
           </div>
           <div className="col-lg-6 intro__img">
             <img
