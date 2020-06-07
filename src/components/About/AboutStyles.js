@@ -82,7 +82,7 @@ export const AboutComponent = styled.section`
     }
     &__desc {
       p {
-        color: ${({ theme }) => theme.textGray};
+        color: ${({ theme }) => theme.colors.textGray};
       }
       @media ${device.md} {
         max-width: 70vw;
@@ -111,7 +111,7 @@ export const AboutNavItem = styled.button`
   display: block;
   :after {
     content: "";
-    background-color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.colors.primary};
     position: absolute;
     bottom: -3px;
     left: 0;

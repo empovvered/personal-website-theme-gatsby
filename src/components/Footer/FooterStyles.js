@@ -17,7 +17,7 @@ export const FooterComponent = styled.footer`
       }
     }
     &__copyright {
-      color: ${({ theme }) => theme.textGray};
+      color: ${({ theme }) => theme.colors.textGray};
     }
   }
 `;

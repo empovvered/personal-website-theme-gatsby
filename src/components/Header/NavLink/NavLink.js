@@ -4,13 +4,13 @@ import { Link } from "gatsby";
 const NavLinkComponent = styled(Link)`
   font-size: 1.6rem;
   text-decoration: none;
-  color: ${({ theme }) => theme.textBlack};
+  color: ${({ theme }) => theme.colors.textBlack};
   font-weight: 500;
   position: relative;
 
   ::after {
     content: "";
-    background-color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.colors.primary};
     position: absolute;
     bottom: -3px;
     left: 0;
@@ -23,7 +23,7 @@ const NavLinkComponent = styled(Link)`
     width: 50%;
   }
   &.active {
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

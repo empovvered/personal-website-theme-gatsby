@@ -73,7 +73,7 @@ export const IntroductionComponent = styled.section`
     &__text {
       padding-left: 90px;
       p {
-        color: ${({ theme }) => theme.textGray};
+        color: ${({ theme }) => theme.colors.textGray};
       }
       @media ${device.md} {
         order: 2;

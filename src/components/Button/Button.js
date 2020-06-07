@@ -5,8 +5,8 @@ const ButtonComponent = styled.button`
   padding: 18px 48px;
   border-radius: 35px;
   font-size: 1.6rem;
-  background-color: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.textWhite};
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textWhite};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border: 0;

@@ -2,36 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import ExpertiseComponent from "components/Expertise/ExpertiseStyles";
 
 import DesktopIcon from "assets/icons/desktop.inline.svg";
-import TargetIcon from "assets/icons/target.inline.svg";
-import ShareIcon from "assets/icons/share.inline.svg";
 import { useIntersection } from "react-use";
 import { isBrowser } from "utils/isBrowser";
 import { fadeIn } from "assets/styles/animations";
 import { graphql, useStaticQuery } from "gatsby";
-
-const dummyData = [
-  {
-    id: 1,
-    title: "UI/UX Design",
-    content:
-      "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
-    icon: DesktopIcon,
-  },
-  {
-    id: 2,
-    title: "Local SEO",
-    content:
-      "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
-    icon: TargetIcon,
-  },
-  {
-    id: 3,
-    title: "Social Media Marketing",
-    content:
-      "Launch party pitch technology user experience innovator buzz stealth MVP business model.",
-    icon: ShareIcon,
-  },
-];
 
 const Expertise = () => {
   const {
@@ -50,6 +24,15 @@ const Expertise = () => {
                 expertiseParagraph
                 expertiseSubtitle
                 expertiseTitle
+                expertiseBoxes {
+                  button {
+                    url
+                    title
+                    target
+                  }
+                  desc
+                  title
+                }
               }
             }
           }
@@ -98,13 +81,14 @@ const Expertise = () => {
           <p>{expertiseData.expertiseParagraph}</p>
         </div>
         <div className="row expertise__content">
-          {dummyData.map((item) => (
-            <div className="col-lg-4" key={item.id}>
+          {expertiseData.expertiseBoxes.map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div className="col-lg-4" key={index}>
               <div className="expertise__box">
                 <DesktopIcon />
                 <h4>{item.title}</h4>
-                <p className="sub-title">{item.content}</p>
-                <a href="/">Show more</a>
+                <p className="sub-title">{item.desc}</p>
+                <a href={item.button.url}>{item.button.title}</a>
               </div>
             </div>
           ))}

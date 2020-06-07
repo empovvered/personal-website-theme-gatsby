@@ -28,6 +28,17 @@ const Introduction = () => {
                 paragraph
                 image {
                   sourceUrl
+                  mediaItemUrl
+                  imageFile {
+                    name
+                    childImageSharp {
+                      fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                        srcSet
+                        src
+                        sizes
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -77,16 +88,16 @@ const Introduction = () => {
             <span className="sub-title">{introData.subtitle}</span>
             <h1 className="d3">{introData.title}</h1>
             <p>{introData.paragraph}</p>
-            <Button type="button">
-              <Link style={{ color: "white" }} to="/contact">
-                Hire Me
-              </Link>
-            </Button>
+            <Link style={{ color: "white" }} to="/contact">
+              <Button type="button">Hire Me</Button>
+            </Link>
           </div>
           <div className="col-lg-6 intro__img">
             <img
               className="intro__element"
-              src={introData.image.sourceUrl}
+              src={introData.image.imageFile.childImageSharp.fluid.src}
+              srcSet={introData.image.imageFile.childImageSharp.fluid.srcSet}
+              sizes={introData.image.imageFile.childImageSharp.fluid.sizes}
               alt="intro-placeholder"
             />
           </div>

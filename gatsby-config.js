@@ -12,14 +12,21 @@ module.exports = {
       options: {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
-        url: "https://bedrock2222.local/wp/graphql",
+        url: "https://dawid.agencjaconvertio.pl/graphql",
         // refetchInterval: 60,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/assets/`,
       },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
+
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {

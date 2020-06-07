@@ -13,7 +13,7 @@ const SocialIconComponent = styled.a`
   display: block;
   cursor: pointer;
   background-color: ${({ isHeaderFixed, theme }) =>
-    isHeaderFixed ? theme.primary : "transparent"};
+    isHeaderFixed ? theme.colors.primary : "transparent"};
   :last-child {
     margin-right: 0;
   }
@@ -23,7 +23,7 @@ const SocialIconComponent = styled.a`
   }
 
   @media ${device.md} {
-    background-color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

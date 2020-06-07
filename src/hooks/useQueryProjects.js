@@ -10,6 +10,16 @@ export const useQueryProjects = () => {
               featuredImage {
                 sourceUrl
                 altText
+                imageFile {
+                  name
+                  childImageSharp {
+                    fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                      srcSet
+                      src
+                      sizes
+                    }
+                  }
+                }
               }
               id
               title
@@ -18,6 +28,7 @@ export const useQueryProjects = () => {
                   id
                 }
               }
+              uri
             }
           }
         }

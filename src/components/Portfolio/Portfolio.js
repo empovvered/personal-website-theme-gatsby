@@ -10,7 +10,7 @@ import { isBrowser } from "utils/isBrowser";
 import { useIntersection } from "react-use";
 import { fadeIn } from "assets/styles/animations";
 
-const Portfolio = ({ categories, projects, viewAll }) => {
+const Portfolio = ({ categories, projects, viewAll, limit }) => {
   const {
     wordpress: {
       pages: {
@@ -88,7 +88,7 @@ const Portfolio = ({ categories, projects, viewAll }) => {
             </div>
             <nav className="portfolio__nav">
               <ul>
-                {categories.map((item) => (
+                {categories.slice(0, limit).map((item) => (
                   <li key={item.id}>
                     <AboutNavItem
                       active={currentTab === item.id && true}
@@ -101,7 +101,7 @@ const Portfolio = ({ categories, projects, viewAll }) => {
                 ))}
               </ul>
               {viewAll && (
-                <Link to="/portfolio">
+                <Link to="/portfolio/">
                   <StyledButtonComponent>View All</StyledButtonComponent>
                 </Link>
               )}
@@ -112,10 +112,19 @@ const Portfolio = ({ categories, projects, viewAll }) => {
           <div className="row">
             {portfolioItems.map((item) => (
               <div key={item.id} className="portfolio__grid-item col-lg-4">
-                <Link to="/">
+                <Link to={item.uri}>
                   <figure>
                     <img
-                      src={item.featuredImage.sourceUrl}
+                      src={
+                        item.featuredImage.imageFile.childImageSharp.fluid.src
+                      }
+                      srcSet={
+                        item.featuredImage.imageFile.childImageSharp.fluid
+                          .srcSet
+                      }
+                      sizes={
+                        item.featuredImage.imageFile.childImageSharp.fluid.sizes
+                      }
                       alt={item.featuredImage.altText}
                     />
                     <figcaption>
@@ -149,11 +158,13 @@ Portfolio.propTypes = {
       }),
     })
   ).isRequired,
+  limit: PropTypes.number,
   viewAll: PropTypes.bool,
 };
 
 Portfolio.defaultProps = {
   viewAll: false,
+  limit: 500,
 };
 
 export default Portfolio;

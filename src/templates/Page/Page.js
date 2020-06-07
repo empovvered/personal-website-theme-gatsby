@@ -1,12 +1,12 @@
 import React from "react";
 import MainLayout from "layouts/MainLayout";
 
-const Page = ({pageContext}) => (
+const Page = () => (
   <MainLayout>
     <div className="container">
       <div className="row">
         <div className="col-8 offset-4">
-          {console.log(pageContext)}
+          <p>lorem 1</p>
         </div>
       </div>
     </div>
