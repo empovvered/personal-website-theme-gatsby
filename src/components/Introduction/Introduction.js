@@ -28,6 +28,17 @@ const Introduction = () => {
                 paragraph
                 image {
                   sourceUrl
+                  mediaItemUrl
+                  imageFile {
+                    name
+                    childImageSharp {
+                      fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                        srcSet
+                        src
+                        sizes
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -86,7 +97,9 @@ const Introduction = () => {
           <div className="col-lg-6 intro__img">
             <img
               className="intro__element"
-              src={introData.image.sourceUrl}
+              src={introData.image.imageFile.childImageSharp.fluid.src}
+              srcSet={introData.image.imageFile.childImageSharp.fluid.srcSet}
+              sizes={introData.image.imageFile.childImageSharp.fluid.sizes}
               alt="intro-placeholder"
             />
           </div>

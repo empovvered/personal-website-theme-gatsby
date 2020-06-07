@@ -140,7 +140,13 @@ const Clients = () => {
             <div key={item.id}>
               <div className="clients__slider-item">
                 <img
-                  src={item.featuredImage.sourceUrl}
+                  src={item.featuredImage.imageFile.childImageSharp.fluid.src}
+                  srcSet={
+                    item.featuredImage.imageFile.childImageSharp.fluid.srcSet
+                  }
+                  sizes={
+                    item.featuredImage.imageFile.childImageSharp.fluid.sizes
+                  }
                   alt={item.featuredImage.altText}
                 />
                 <blockquote>

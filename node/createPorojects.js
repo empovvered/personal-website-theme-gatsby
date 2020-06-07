@@ -8,7 +8,18 @@ module.exports = async ({ actions, graphql }) => {
           nodes {
             id
             featuredImage {
-              sourceUrl
+                sourceUrl
+                altText
+                imageFile {
+                    name
+                    childImageSharp {
+                        fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                            srcSet
+                            src
+                            sizes
+                        }
+                    }
+                }
             }
             title
             content
@@ -34,7 +45,7 @@ module.exports = async ({ actions, graphql }) => {
         context: {
           title: project.title,
           content: project.content,
-          featuredImage: project.featuredImage.sourceUrl,
+          featuredImage: project.featuredImage,
         },
       });
     });

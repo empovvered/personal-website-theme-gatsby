@@ -13,6 +13,16 @@ export const useQueryClients = () => {
               featuredImage {
                 sourceUrl
                 altText
+                imageFile {
+                  name
+                  childImageSharp {
+                    fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                      srcSet
+                      src
+                      sizes
+                    }
+                  }
+                }
               }
               title
               excerpt

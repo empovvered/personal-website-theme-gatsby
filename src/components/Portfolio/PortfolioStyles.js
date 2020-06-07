@@ -44,6 +44,9 @@ export const PortfolioComponent = styled.section`
       transition: all 0.2s ease-in-out;
       figure {
         position: relative;
+        img {
+          width: 100%;
+        }
         figcaption {
           position: absolute;
           color: ${({ theme }) => theme.colors.textWhite};

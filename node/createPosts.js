@@ -9,12 +9,23 @@ module.exports = async ({ actions, graphql }) => {
 					content
 					title
 					uri
-					featuredImage {
-					  sourceUrl
-					  }
-					}
+          featuredImage {
+              sourceUrl
+              altText
+              imageFile {
+                  name
+                  childImageSharp {
+                      fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                          srcSet
+                          src
+                          sizes
+                      }
+                  }
+              }
+          }
 				}
       }
+    }
     }
   `;
 
@@ -31,7 +42,7 @@ module.exports = async ({ actions, graphql }) => {
         context: {
           title: post.title,
           content: post.content,
-          featuredImage: post.featuredImage.sourceUrl,
+          featuredImage: post.featuredImage,
         },
       });
     });

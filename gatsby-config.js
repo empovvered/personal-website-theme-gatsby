@@ -13,13 +13,20 @@ module.exports = {
         typeName: "WORDPRESS",
         fieldName: "wordpress",
         url: "http://bedrock.local/wp/graphql",
-        refetchInterval: 60,
+        // refetchInterval: 60,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/assets/`,
       },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
+
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {

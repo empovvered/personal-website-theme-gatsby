@@ -18,7 +18,12 @@ const Page = ({ pageContext }) => (
         <div className="row">
           <div className="col-8 offset-2">
             <h1>{pageContext.title}</h1>
-            <img src={pageContext.featuredImage} alt="" />
+            <img
+              src={pageContext.featuredImage.childImageSharp.fluid.src}
+              srcSet={pageContext.featuredImage.childImageSharp.fluid.srcSet}
+              sizes={pageContext.featuredImage.childImageSharp.fluid.sizes}
+              alt={pageContext}
+            />
             {/* eslint-disable-next-line react/no-danger */}
             <div dangerouslySetInnerHTML={{ __html: pageContext.content }} />
           </div>
@@ -31,7 +36,7 @@ const Page = ({ pageContext }) => (
 Page.propTypes = {
   pageContext: shape({
     title: PropTypes.string.isRequired,
-    featuredImage: PropTypes.string.isRequired,
+    featuredImage: PropTypes.object.isRequired,
     content: PropTypes.string.isRequired,
   }).isRequired,
 };

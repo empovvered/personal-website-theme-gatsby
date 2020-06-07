@@ -29,7 +29,17 @@ const Introduction = () => {
                 aboutSubtitle
                 aboutImage {
                   sourceUrl
-                  altText
+                  mediaItemUrl
+                  imageFile {
+                    name
+                    childImageSharp {
+                      fluid(maxWidth: 500, maxHeight: 500, quality: 75) {
+                        srcSet
+                        src
+                        sizes
+                      }
+                    }
+                  }
                 }
                 aboutContent {
                   title
@@ -119,7 +129,11 @@ const Introduction = () => {
           <div className="col-lg-6 about__image-box">
             <img
               className="about__image-element"
-              src={aboutData.aboutImage.sourceUrl}
+              src={aboutData.aboutImage.imageFile.childImageSharp.fluid.src}
+              srcSet={
+                aboutData.aboutImage.imageFile.childImageSharp.fluid.srcSet
+              }
+              sizes={aboutData.aboutImage.imageFile.childImageSharp.fluid.sizes}
               alt={aboutData.aboutImage.altText}
             />
           </div>
